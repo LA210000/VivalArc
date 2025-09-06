@@ -1,11 +1,107 @@
-/* 
-version: 1.0.5
-update: 2024.11.03
-vivaldi version: v6.6 - v7.0
-*/
+:root {
+	--leftbarwidth: 214px; /* adjust this for your best view */
+	--browserborder: 10px; /* change this if you want to change border size */
+	--PinnedTab: 60px; /* pinned tabs height */
+	--biggertab: 30px; /* normal tabs height */
+	--lightgradient: linear-gradient(#C9CEE1, #EEB7CA);
+	--PinnedWidth: calc(var(--leftbarwidth) - var(--browserborder) - var(--browserborder));
+}
+#tabs-container {
+	min-width: var(--leftbarwidth);
+	max-width: var(--leftbarwidth);
+	padding: var(--browserborder) var(--browserborder) 0 var(--browserborder);
+}
+.tabbar-wrapper > .tabbar-wrapper {
+	border-top-right-radius: var(--radiusHalf);
+	border-bottom-right-radius: var(--radiusHalf);
+	min-width: var(--leftbarwidth);
+	height: calc(100% - var(--browserborder) + 1px) !important;
+	overflow: hidden;
+	z-index:1;
+}
+#browser:not(:has(#panels-container.switcher)) .tabbar-wrapper > .tabbar-wrapper{
+	box-shadow: var(--colorTabBar) 0 calc(var(--leftbarwidth) * 1.5);
+}
+#tabs-container > .resize > .tab-strip > .separator,
+#tabs-container > .resize > .tab-strip .tab-yield-space {
+	z-index: 1;
+}
+#tabs-tabbar-container {
+	width: var(--leftbarwidth) !important;
+	padding: 0 !important;
+}
+.tab-position.is-pinned .tab {background-color: rgba(230,234,241,0.15);max-height:var(--PinnedTab);}
+.tab-position span.title {color: var(--colorFg);} 
+.resize {
+	display: grid !important;
+	height: 100% !important;
+	flex: unset !important;
+	grid-auto-rows: max-content;
+	gap: .5em;
+	.tab-strip,.sync-and-trash-container {display: contents;}
+	.tab-position, .newtab, .separator {transform: unset !important;position: relative;}
+	.tab-position.is-pinned {
+		grid-column: span 1;
+		min-width: 100%;
+		max-width: 100%;
+		height: var(--PinnedTab);
+		.tab-header {
+			justify-content: center;
+			padding: unset;
+			flex-basis: var(--PinnedTab) !important;
+			.title {display: none;}
+		}
+	}
+	.tab-position:not(.is-pinned), .newtab, .separator {grid-column: 1 / -1;min-width: 100%;}
+	grid-template-columns: repeat(3, minmax(var(--biggertab), auto)) !important;  
+	.tab-wrapper {
+		max-height: unset !important;
+		margin: 0 !important;
+	}
+}
+#tabs-tabbar-container > button,
+#tabs-container > button {
+	display: none;
+}
+/* bigger tab */
+.tab-position:not(.is-pinned) .tab .tab-header {flex-basis: var(--biggertab) !important;}
+.tab-position:not(.is-pinned) .tab .tab-header > .favicon {min-width: 26px !important;}
+.tab-position:not(.is-pinned) .tab .tab-header > .title {padding:0;}
+#tabs-container .tab-position:not(.accordion-toggle-arrow):not(.is-pinned) {
+	height: var(--biggertab) !important;
+	.tab {max-height: var(--biggertab) !important;}
+}
+/* QOL */
+/* not pinned tab audio button */
+/* .tab-position:not(.is-pinned) .tab-audio {top: 12px !important;} */
+.tab-position:not(.is-pinned) {
+	.tab-audio {position: relative !important;top: 0 !important;order: 0;margin-left: 0px;margin-right: 6px;color:var(--colorFg);width:18px;height:18px;}
+	.title{position: relative !important;order: 1;}
+	.close{position: relative !important;order: 1;}
+	.favicon{transform:unset !important;}
+}
+/* other QOL */
+.tab-position.is-pinned .tab-audio {top: 0 !important;}
+.tab-position .tab {font-size: 14px;}
+.tab-position:not(.toolbar):not(.is-pinned):not(.tab-yield-space) {order: 1;}
+.toolbar.toolbar-tabbar.toolbar-large.tab-position {order: 0;}
+/* Seperator + new tab */
+	.sync-and-trash-container {margin: 0 !important;}
+	.newtab {
+		left: unset !important;
+		top: unset !important;
+		height: var(--biggertab);
+	}
+/* Color/Blur fix */
+span.button-icon {
+    color: var(--colorFg);
+}
+#browser.transparent-tabbar #tabs-tabbar-container {
+	background-color: unset !important;
+}
 
 :root{
-    --window-border:10px; /* window border, recommend 4px~16px */
+    --window-border:7px; /* window border, recommend 4px~16px */
     --mac-header:calc(var(--window-border) + 0px); /* title bar extra height */
     --win-header:calc(var(--window-border) + 0px); /* title bar extra height */
     --linux-header:calc(var(--window-border) + 0px); /* title bar extra height */
@@ -55,7 +151,7 @@ vivaldi version: v6.6 - v7.0
 #browser:not(.is-settingspage):not(.tabs-top) #header,
 #browser.color-behind-tabs-off:not(.is-settingspage)#browser:not(.tabs-top):not(.tabs-bottom) #header{
     box-shadow:none;
-    overflow: visible;
+    overflow: hidden;
 }
 
 #browser:not(.is-settingspage).fullscreen > #header,
@@ -224,6 +320,18 @@ vivaldi version: v6.6 - v7.0
     min-height:calc((var(--addressbar-height)) / var(--uiZoomLevel));
 }
 
+/* Url text on center */
+.UrlField {justify-content: center;}
+input#urlFieldInput {text-align:center;}
+.UrlBar-UrlObfuscationWarning {-webkit-app-region: no-drag !important;}
+
+#browser:has(.switcher):not(.toolbar-edit-mode) .toolbar-mainbar .toolbar-spacer:has(+.button-toolbar button[name="Back"]) {
+	max-width: 0;
+}
+#browser.win:not(:has(.switcher)):not(.toolbar-edit-mode) .toolbar-mainbar .toolbar-spacer:has(+.button-toolbar button[name="Back"]) {
+	min-width: calc(var(--leftbarwidth) - 34px - 34px - 34px - var(--browserborder))
+}
+
 #browser:not(.tabs-top):not(.tabs-bottom).disable-titlebar#browser.win .window-buttongroup{
      height:var(--addressbar-height);   
 }
@@ -330,10 +438,10 @@ vivaldi version: v6.6 - v7.0
 
 /*tabbar left & tabbar right*/
 
-/* #browser #tabs-tabbar-container.left  ::-webkit-scrollbar, 
+#browser #tabs-tabbar-container.left  ::-webkit-scrollbar, 
 #browser #tabs-tabbar-container.right  ::-webkit-scrollbar{
     display: none; 
-} */
+}
 
 .tabs-left .tabbar-wrapper,
 .tabs-right .tabbar-wrapper{
@@ -525,7 +633,7 @@ vivaldi version: v6.6 - v7.0
 
 /*rounded webview*/
 #main, #main > .inner{
-    overflow:visible;
+    overflow: hidden;
 }
 
 /* #main > .inner{
