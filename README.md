@@ -17,13 +17,9 @@ Based on:
 - Enhanced Vivaldi features :
 
     - Pinned tabs : Displayed as icon-only grid ;
-
     - Stacked tabs : Two-Level Tab Stacks with titles ;
-
     - Compact mode : Icon-only sidebar, implemented under the "panel toggle" command, keyboard shortcut assignable ;
-
     - Vivaldi menu icon : Vivaldi menu icon customizable ;
-
     - Toolbar Icons : Toolbar Icons numbers customizable .
 
 - Additional features :
@@ -37,9 +33,9 @@ Based on:
 
 ## :camera_flash: Preview
 
-| ![](./preview/Preview.png) | ![](./preview/Two-Level Stacked tabs.png) | ![](./preview/Floating Address Bar.png) |
-| :------------------------: | ----------------------------------------- | --------------------------------------- |
-|        **Preview**         | **Two-Level Stacked tabs**                | **Floating Address Bar**                |
+| ![](./preview/Preview.png) | ![](./preview/Two-LevelStackedTabs.png) | ![](./preview/FloatingAddressBar.png) |
+| :------------------------: | --------------------------------------- | ------------------------------------- |
+|        **Preview**         | **Two-Level Stacked tabs**              | **Floating Address Bar**              |
 
 # :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
