@@ -93,7 +93,7 @@ While the mod aims to be compatible with as many native customization features a
 <sup>(5)</sup> Path and query parameters.<br>
 <sup>(6)</sup> Except the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.<br>
 <sup>(7)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
-<sup>(8)</sup> When enabled, default value is `12`.
+<sup>(8)</sup> When enabled, default value is `12`.<br>
 <sup>(9)</sup> To copy Zen Browser, default value is `10`.
 
 ### Additional features
