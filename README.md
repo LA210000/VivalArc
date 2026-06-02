@@ -2,7 +2,7 @@
 
 # <img src="./icon.png" width="28" height="28"> VivalArc
 
-Based on:
+**Based on**:
 
 [KaKi87's phi-for-vivaldi](https://github.com/KaKi87/phi-for-vivaldi)
 
@@ -10,57 +10,57 @@ Based on:
 
 ## ✨ Features
 
-- Supported Vivaldi features : 
+- **Supported Vivaldi features** : 
 
     UI on left & right sides, theming from themes.vivaldi.net, toggle UI, panels, popups, split tabs ;
 
-- Enhanced Vivaldi features :
+- **Enhanced Vivaldi features** :
 
-    - Pinned tabs : Displayed as icon-only grid ;
-    - Stacked tabs : Two-Level Tab Stacks with titles ;
-    - Compact mode : Icon-only sidebar, implemented under the "panel toggle" command, keyboard shortcut assignable ;
-    - Vivaldi menu icon : Vivaldi menu icon customizable ;
-    - Toolbar Icons : Toolbar Icons numbers customizable .
+    - **Pinned tabs** : Displayed as icon-only grid ;
+    - **Stacked tabs** : Two-Level Tab Stacks with titles ;
+    - **Compact mode** : Icon-only sidebar, implemented under the "panel toggle" command, keyboard shortcut assignable ;
+    - **Vivaldi menu icon** : Vivaldi menu icon customizable ;
+    - **Toolbar Icons** : Toolbar Icons numbers customizable .
 
-- Additional features :
+- **Additional features** :
   
-  - Extension Popup : Vertical extensions popup, optional, disabled by default ;
-  - Scrollbar : Hide scrollbar, by default ;
-  - Window Control Button : Windows or MacOS Styled Buttons, optional ;
-  - Workspace Button : Hide workspace button, optional, enabled by default ;
-  - Find in Page : Find in Page centered, enabled by default ;
-  - Address bar : Floating address bar that centers within the browser window, with center-aligned URL text, optional, enabled by default.
+  - **Extension Popup** : Vertical extensions popup, optional, disabled by default ;
+  - **Scrollbar** : Hide scrollbar, by default ;
+  - **Window Control Button** : Windows or MacOS Styled Buttons, optional ;
+  - **Workspace Button** : Hide workspace button, optional, enabled by default ;
+  - **Find in Page** : Find in Page centered, enabled by default ;
+  - **Address bar** : Floating address bar that centers within the browser window, with center-aligned URL text, optional, enabled by default.
 
 ## :camera_flash: Preview
 
 | ![](./preview/Preview.png) | ![](./preview/Two-LevelStackedTabs.png) | ![](./preview/FloatingAddressBar.png) |
-| :------------------------: | --------------------------------------- | ------------------------------------- |
-|        **Preview**         | **Two-Level Stacked tabs**              | **Floating Address Bar**              |
+| :------------------------: | :-------------------------------------: | :-----------------------------------: |
+|        **Preview**         |       **Two-Level Stacked tabs**        |       **Floating Address Bar**        |
 
 # :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
-1. (If going through onboarding) At the "Choose a style" step, select "Classic" ;
+1. (If going through onboarding) At the "**Choose a style**" step, select "**Classic**" ;
 2. Create a folder to download the mod into ;
-3. Download the mod by right-clicking [here](https://github.com/LA210000/VivalArc/blob/master/VivalArc.css) then "Save Link As..." to the folder created in step 2 ;
-4. Go to `vivaldi:flags` and next to "Allow CSS modifications", switch "Default" to "Enabled" ;
+3. Download the mod by right-clicking **[here](https://github.com/LA210000/VivalArc/blob/master/VivalArc.css)** then "**Save Link As...**" to the folder created in step 2 ;
+4. Go to **`vivaldi:flags`** and next to "**Allow CSS modifications**", switch "**Default**" to "**Enabled**" ;
 5. Open Vivaldi settings ;
-   - Under "General" ➔ "Startup" ➔ "Default Browser", uncheck "Check on Startup" ;
-   - (If not gone through onboarding) Under "Appearance" ➔ "Layout Presets", select "Classic" ;
-   - (Optionally, recommended on Mac) Under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
-   - Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Status Info Overlay" or "Hide Status Bar" ;
-   - Under "Appearance" ➔ "Custom UI Modifications", open the folder created in step 1 ;
-   - Under "Tabs" ➔ "Tabs" ➔ "Tab Bar Position", select "Left" or "Right" ;
-   - Under "Tabs" ➔ "Tab Display" ➔ "Tab Options", uncheck "Show Popup Thumbnails" ;
-   - Under "Tabs" ➔ "Tab Features" ➔ "Tab Stacking", select "Two-Level" ;
-   - (Optionally) Under "Panel" ➔ "Panel Position", select "Left" or "Right" ;
-   - Under "Panel" ➔ "Panels" ➔ "Panel Options", check "Floating Panel" ;
-   - (Optionally) Under "Address Bar" ➔ "Extension Visibility", check "Expand Hidden Extensions to Drop-Down Menu" ;
-   - (Optionally) Under "Keyboard" ➔ "View" ➔ "Panel Toggle", set a shortcut for compact mode ;
+   - Under "**General**" ➔ "**Startup**" ➔ "**Default Browser**", uncheck "**Check on Startup**" ;
+   - (If not gone through onboarding) Under "**Appearance**" ➔ "**Layout Presets**", select "**Classic**" ;
+   - (Optionally, recommended on Mac) Under "**Appearance**" ➔ "**Window Appearance**", check "**Use Native Window**" ;
+   - Under "**Appearance**" ➔ "**Window Appearance**" ➔ "**Status Bar**", select "**Status Info Overlay**" or "**Hide Status Bar**" ;
+   - Under "**Appearance**" ➔ "**Custom UI Modifications**", open the folder created in step 1 ;
+   - Under "**Tabs**" ➔ "**Tabs**" ➔ "**Tab Bar Position**", select "**Left" or "Right**" ;
+   - Under "**Tabs**" ➔ "**Tab Display**" ➔ "**Tab Options**", uncheck "**Show Popup Thumbnails**" ;
+   - Under "**Tabs**" ➔ "**Tab Features**" ➔ "**Tab Stacking**", select "**Two-Level**" ;
+   - (Optionally) Under "**Panel**" ➔ "**Panel Position**", select "**Left" or "Right**" ;
+   - Under "**Panel**" ➔ "**Panels**" ➔ "**Panel Options**", check "**Floating Panel**" ;
+   - (Optionally) Under "**Address Bar**" ➔ "**Extension Visibility**", check "**Expand Hidden Extensions to Drop-Down Menu**" ;
+   - (Optionally) Under "**Keyboard**" ➔ "**View**" ➔ "**Panel Toggle**", set a shortcut for compact mode ;
 6. Quit and relaunch Vivaldi ;
 7. Start tweaking the UI ;
-   - Right-click in the blank above the URL bar then "Customize Toolbar..." ;
-   - Right-click the space items then "Remove from Toolbar" to remove whatever you want ;
-   - Then add, move and remove whatever you want, before clicking "Done" ;
+   - Right-click in the blank above the URL bar then "**Customize Toolbar...**" ;
+   - Right-click the space items then "**Remove from Toolbar**" to remove whatever you want ;
+   - Then add, move and remove whatever you want, before clicking "**Done**" ;
 8. (Optionally) Star the [GitHub repo](https://github.com/LA210000/VivalArc) .
 
 ## :hammer_and_wrench: Customization
