@@ -1,0 +1,1622 @@
+/* VivalArc
+ * This is my personal CSS that I use to fit my liking and just appended some things to vivalarc that I want to be included
+ * Version 2026_06_02
+ *
+ * Last Windows test : VivalArc on 7.9.3970.67
+ *
+ * (C) 2026 — YounG
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * Based on:
+ * https://github.com/KaKi87/vivalarc-for-vivaldi
+ * https://github.com/2littersofwater/Furui-vivalarc-Tweaks
+ */
+
+ /*┌──────────────────┐
+   │User customization│
+   └──────────────────┘*/
+
+:root {
+  /*========================
+	  VivalArc Settings
+	========================*/
+
+  --vivalarc--sidebar-width: 220;
+  --vivalarc--compact-sidebar-width: 50;
+  --vivalarc--is-auto-compact-mode: 0;
+  --vivalarc--is-vivalarc-menu-icon: 1;
+  --vivalarc--toolbar-column-count: 6;
+  --vivalarc--expand-extensions: 1;
+  --vivalarc--address-bar-font-size-decrease: 1;
+  --vivalarc--is-address-bar-unfocused-partial: 0;
+  --vivalarc--is-address-bar-unfocused-hide-icons: 1;
+  --vivalarc--is-address-bar-focused-hide-icons: 0;
+  --vivalarc--pinned-column-count: 3;
+  --vivalarc--webview-border: 10;
+  --vivalarc--webview-border-radius: 12;
+  --vivalarc--webview-shadow-size: 10;
+  --vivalarc--webview-shadow-color: 0, 0, 0, 0.25;
+  --vivalarc--is-individual-tiled-tab-header: 0;
+  --vivalarc--is-hide-window-controls: 0;
+  --vivalarc--is-hide-content-blocker: 1;
+  --vivalarc--hide-workspace-button: 1;
+  --vivalarc--custom-window-controls: 2;
+  --vivalarc--custom-window-controls-minimize-color: #e69b00;
+  --vivalarc--custom-window-controls-maximize-color: #028a0f;
+  --vivalarc--custom-window-controls-close-color: #bf4040;
+  --vivalarc--custom-window-controls-more-toolbar-space: 0;
+  --vivalarc--custom-window-controls-windows-style-height: 20;
+  --vivalarc--vertical-extensions: 0;
+  --vivalarc--simplified-downloads: 1;
+  --vivalarc--simplified-downloads-files: 7;
+  --vivalarc--floating-address-bar: 1;
+}
+
+/*===============================================
+  Additional Tweaks
+===============================================*/
+
+/*========================
+  Hide scrollbar
+========================*/
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*========================
+  Expand Toolbar Extensions
+========================*/
+
+@container style(--vivalarc--expand-extensions: 1) {
+  .toolbar-extensions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .toolbar-extensions button,
+  .toolbar-extensions .button-toolbar {
+    flex: 1 1 auto !important;
+    min-width: 28px !important;
+    max-width: 40px !important;
+    height: 30px !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+/*=======================================
+	Window Control Button
+=======================================*/
+
+/*========================
+  Windows Styled Buttons
+========================*/
+
+@container style(--vivalarc--custom-window-controls: 1) {
+  .window-buttongroup {
+    position: fixed !important;
+    left: calc(100vw - 120px) !important;
+    right: unset !important;
+    top: 0px !important;
+    grid-column: 1 / -1;
+    margin-left: auto !important;
+    margin-right: 4px;
+    pointer-events: none;
+  }
+
+  .disable-titlebar#browser.win .window-buttongroup  {
+    height: 18px;
+  }
+
+  .window-buttongroup.on-mainbar  {
+    gap: 0px !important;
+    overflow: hidden;
+  }
+
+  .window-buttongroup.on-mainbar button {
+    width: 32px !important;
+    height: calc(
+      var(--vivalarc--custom-window-controls-windows-style-height) * 1px
+    ) !important;
+    position: relative !important;
+    border-radius: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 32px !important;
+    min-height: calc(
+      var(--vivalarc--custom-window-controls-windows-style-height) * 1px
+    ) !important;
+    font-size: 0 !important;
+    color: transparent !important;
+    background: none !important;
+    z-index: 2;
+    pointer-events: auto !important;
+  }
+
+  .window-buttongroup.on-mainbar button::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 32px !important;
+    height: 10px !important;
+    transition: height 0.2s ease-in-out !important;
+    z-index: 1 !important;
+  }
+
+  .window-buttongroup.on-mainbar button:hover::after {
+    height: calc(
+      var(--vivalarc--custom-window-controls-windows-style-height) * 1px
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-close::after {
+    background: var(--vivalarc--custom-window-controls-close-color) !important;
+  }
+  .window-buttongroup.on-mainbar .window-close:hover::after {
+    background: hsl(
+      from var(--vivalarc--custom-window-controls-close-color) h s calc(l - 20)
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-minimize::after {
+    background: var(
+      --vivalarc--custom-window-controls-minimize-color
+    ) !important;
+  }
+  .window-buttongroup.on-mainbar .window-minimize:hover::after {
+    background: hsl(
+      from var(--vivalarc--custom-window-controls-minimize-color) h s
+        calc(l - 20)
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-maximize::after {
+    background: var(
+      --vivalarc--custom-window-controls-maximize-color
+    ) !important;
+  }
+  .window-buttongroup.on-mainbar .window-maximize:hover::after {
+    background: hsl(
+      from var(--vivalarc--custom-window-controls-maximize-color) h s
+        calc(l - 20)
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-close img,
+  .window-buttongroup.on-mainbar .window-close svg,
+  .window-buttongroup.on-mainbar .window-minimize img,
+  .window-buttongroup.on-mainbar .window-minimize svg,
+  .window-buttongroup.on-mainbar .window-maximize img,
+  .window-buttongroup.on-mainbar .window-maximize svg {
+    display: none !important;
+  }
+
+  @container style(--vivalarc--custom-window-controls-more-toolbar-space: 1) {
+    .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 1fr !important;
+    }
+  }
+
+  @container style(--vivalarc--custom-window-controls-more-toolbar-space: 0) {
+    .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 1 !important;
+    }
+  }
+}
+
+/*========================
+  MacOS Styled Button
+========================*/
+
+@container style(--vivalarc--custom-window-controls: 2) {
+  .window-buttongroup {
+    position: absolute !important;
+    left: calc(var(--vivalarc--sidebar-width) * 1px - 80px) !important;
+    right: unset !important;
+    top: 8px !important;
+    grid-column: 1 / -1;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .disable-titlebar#browser.win .window-buttongroup {
+    height: 24px;
+  }
+
+  .window-buttongroup.on-mainbar {
+    gap: 8px !important;
+  }
+
+  .window-buttongroup.on-mainbar button {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    font-size: 0 !important;
+    color: transparent !important;
+  }
+
+  .window-buttongroup.on-mainbar button::before,
+  .window-buttongroup.on-mainbar button::after {
+    content: none !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-close {
+    background: var(--vivalarc--custom-window-controls-close-color) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-close img,
+  .window-buttongroup.on-mainbar .window-close svg {
+    display: none !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-close:hover {
+    background: hsl(
+      from var(--vivalarc--custom-window-controls-close-color) h s calc(l - 20)
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-minimize {
+    background: var(
+      --vivalarc--custom-window-controls-minimize-color
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-minimize img,
+  .window-buttongroup.on-mainbar .window-minimize svg {
+    display: none !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-minimize:hover {
+    background: hsl(
+      from var(--vivalarc--custom-window-controls-minimize-color) h s
+        calc(l - 20)
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-maximize {
+    background: var(
+      --vivalarc--custom-window-controls-maximize-color
+    ) !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-maximize img,
+  .window-buttongroup.on-mainbar .window-maximize svg {
+    display: none !important;
+  }
+
+  .window-buttongroup.on-mainbar .window-maximize:hover {
+    background: hsl(
+      from var(--vivalarc--custom-window-controls-maximize-color) h s
+        calc(l - 20)
+    ) !important;
+  }
+
+  @container style(--vivalarc--custom-window-controls-more-toolbar-space: 1) {
+    .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 1fr !important;
+    }
+  }
+
+  @container style(--vivalarc--custom-window-controls-more-toolbar-space: 0) {
+    .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 1 !important;
+    }
+  }
+}
+
+/*========================
+  Extension Tweaks
+========================*/
+
+@container style(--vivalarc--vertical-extensions: 1) {
+  .extension-popup {
+    position: fixed !important;
+    top: 40px !important;
+    left: 10px !important;
+  }
+
+  .extension-popup::before,
+  .extension-popup::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .extensionIconPopupMenu {
+    min-width: 280px !important;
+    max-width: 320px !important;
+    padding: 6px !important;
+    background-color: var(--colorBgIntserAlpha);
+    backdrop-filter: blur(10px);
+  }
+
+  .extensionIconPopupMenu
+    .toolbar.toolbar-mainbar.toolbar-wrap
+    .button-toolbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    padding: 10px 14px !important;
+    margin: 2px 0 !important;
+    border-radius: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease;
+  }
+
+  .extensionIconPopupMenu
+    .toolbar.toolbar-mainbar.toolbar-wrap
+    .button-toolbar:hover {
+    background: var(--colorFg) !important; /* rgba(0,0,0,0.08) !important;*/
+  }
+
+  .extensionIconPopupMenu
+    .toolbar.toolbar-mainbar.toolbar-wrap
+    .button-toolbar
+    > button {
+    flex-shrink: 0 !important;
+    width: 22px !important;
+    height: 22px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .extensionIconPopupMenu
+    .toolbar.toolbar-mainbar.toolbar-wrap
+    .button-toolbar
+    > button::after {
+    content: attr(title) !important;
+    font-size: 14px !important;
+    color: var(--colorFg, #222) !important;
+    margin-left: 10px !important;
+    flex-grow: 1 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .extensionIconPopupMenu
+    .toolbar.toolbar-mainbar.toolbar-wrap
+    .button-toolbar
+    > button {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .extensionIconPopupMenu
+    .toolbar.toolbar-mainbar.toolbar-wrap
+    .button-toolbar:hover {
+    background: var(--colorAccentFgAlpha) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/*========================
+  Downloads
+========================*/
+
+@container style(--vivalarc--simplified-downloads: 1) {
+  .button-popup .resize {
+    display: none;
+  }
+
+  .button-popup:before {
+    display: none;
+  }
+
+  .download-editor.download-editor {
+    display: none;
+  }
+
+  .download-popout.button-popup {
+    position: absolute !important;
+    bottom: 40px !important;
+    top: auto !important;
+    width: 360px !important;
+    height: calc(
+      ((var(--vivalarc--simplified-downloads-files) - 4) * 50px) + 270px
+    ) !important;
+    background: var(--colorBgIntserAlpha) !important;
+    margin-left: -30px !important;
+    backdrop-filter: blur(10px);
+  }
+
+  .sortselector.sortselector-compact {
+    display: none !important;
+  }
+
+  #downloads-button .downloads-button-progress {
+    animation: download-pulse 1.5s infinite;
+  }
+
+  @keyframes download-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/*========================
+  Workspace Button
+========================*/
+
+.theme-dark .WorkspacePopup {
+  background-color: var(--colorBgIntserAlpha);
+  backdrop-filter: blur(10px);
+}
+
+.theme-dark .WorkspacePopup-Items .workspace-item-wrapper,
+.theme-dark .WorkspacePopup-Items .this-window {
+  background-color: var(--colorBgIntserAlpha);
+  backdrop-filter: blur(10px);
+}
+
+:not(:active, .workspace-item-wrapper).WorkspacePopup-Items
+  .workspace-item-wrapper:hover,
+:not(:active, .workspace-item-wrapper).WorkspacePopup-Items .this-window:hover {
+  background-color: var(--colorAccentFgAlpha);
+  backdrop-filter: blur(10px);
+}
+
+/*========================
+  Toolbar Icons
+========================*/
+
+#browser:not(.density-on) #switch :is(button, .button-toolbar) {
+  border-radius: 8px !important;
+  transition: background-color 0.1s ease-out;
+}
+
+#browser:not(.density-on)
+  #switch
+  :is(button, .button-toolbar):not(
+    .toolbar-spacer,
+    .toolbar-spacer-panel,
+    .toolbar-spacer-flexible,
+    .toolbar-divider
+  ):is(:hover, :active) {
+  background-color: var(--colorBgDark);
+}
+
+#browser:not(.density-on) #switch :is(button, .button-toolbar) img,
+#browser:not(.density-on) #switch :is(button, .button-toolbar) svg {
+  transform: scale(0.8);
+  transition: transform 0.2s ease;
+}
+
+#browser:not(.density-on) #switch :is(button, .button-toolbar) {
+  height: 32px !important;
+  width: 32px !important;
+  margin: 2px auto !important;
+}
+
+#browser:not(.density-on)
+  #switch
+  :is(button, .button-toolbar):hover
+  :is(img, svg) {
+  transform: scale(1);
+}
+
+/*========================
+  Find in Page
+========================*/
+
+.find-in-page {
+  position: absolute;
+  z-index: 9999;
+  bottom: 10px;
+  left: calc(50vw - 425px);
+
+  width: auto !important;
+  max-width: 400px;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  background-color: var(--colorBgIntserAlpha);
+  border: 1px solid var(--colorBorder);
+}
+
+.find-in-page-wrapper {
+  height: 0 !important;
+  border-bottom: none !important;
+  background-color: transparent !important;
+}
+
+/*========================
+	Webpage Blur
+========================*/
+
+#webpage-stack {
+  transition: filter 0.35s ease, transform 0.35s ease;
+  will-change: filter, transform;
+  transform-origin: center center;
+}
+
+#browser:has(.UrlBar-AddressField:focus-within) #webpage-stack {
+  filter: blur(10px) brightness(80%);
+  transform: scale(0.99);
+}
+
+/*========================
+	Address Bar
+========================*/
+
+.OmniLinkItem--Highlighted:not(.OmniLinkItem--ButtonFocus) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.OmniLinkItem:not(.OmniLinkItem--Highlighted):hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-left: 0px;
+}
+
+@container style(--vivalarc--floating-address-bar: 1) {
+  .UrlBar-AddressField:has(#urlFieldInput:focus),
+  .UrlBar-AddressField:focus-within {
+    width: 720px !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    
+    position: fixed !important;
+    left: 50vw !important;
+    top: 50vh !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 9999;
+    
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    padding: 0 15px !important;
+    border-radius: 25px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .UrlBar-AddressField:focus-within .UrlBar-UrlField,
+  .UrlBar-AddressField:focus-within #urlFieldInput,
+  .UrlBar-AddressField:focus-within .UrlFragment-LinkWrapper,
+  .UrlBar-AddressField:focus-within .UrlFragment-Wrapper {
+    text-align: center !important;
+    font-size: 16px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .UrlBar-AddressField:focus-within .UrlFragment-LinkWrapper > * {
+    display: inline-block !important;
+    text-align: center !important;
+  }
+}
+
+/*┌───────────┐
+  │source code│
+  └───────────┘*/
+
+.minimal-ui {
+  .toolbar-mainbar[aria-label],
+  #panels-container,
+  &.linux #header,
+  &.win #header {
+    display: none !important;
+  }
+}
+
+#app:has(
+    #browser:not(
+        .inner,
+        .minimal-ui,
+        .popup,
+        .tabs-top,
+        .tabs-bottom,
+        .break-mode,
+        .tabs-off
+      )
+  ) {
+  &:has(#panel_switch) {
+    --vivalarc___is-compact-mode: 1;
+  }
+  &:has(.panel-collapse-guard[aria-hidden="false"]) {
+    --vivalarc___is-panel-open: 1;
+  }
+  &:not(:has(.panel-collapse-guard)),
+  &:has(.panel-collapse-guard[aria-hidden="true"]) {
+    --vivalarc___is-panel-closed: 1;
+  }
+
+  .separator-wsbutton,
+  .is-pinned .title,
+  .tab-group .title:not(:has(.tab-title-edit)),
+  #tabs-tabbar-container .SlideBar,
+  #panel_switch {
+    display: none !important;
+  }
+
+  @container style(--vivalarc--is-auto-compact-mode: 1) {
+    --vivalarc___is-compact-mode: 1;
+
+    &:has(
+        [name="WorkspaceButton"]:hover,
+        .toolbar-mainbar[aria-label]:hover,
+        #tabs-container:hover,
+        .toolbar-panel:hover
+      ) {
+      --vivalarc___is-compact-mode: 0;
+    }
+  }
+
+  @container style(--vivalarc--is-hide-content-blocker: 1) {
+    .ContentBlocker-Control {
+      display: none;
+    }
+  }
+
+#main,
+#titlebar,
+.workspace-popup,
+.mainbar,
+.mainbar > div,
+#panels,
+#switch,
+.tab-position,
+#main > .inner {
+    display: contents !important;
+}
+
+.tabbar-wrapper,
+#tabs-tabbar-container{
+    display: flex !important;
+    flex-direction:column !important;
+}
+  #browser {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  #browser.tabs-left {
+    grid-template-columns: calc(var(--vivalarc--sidebar-width) * 1px) auto;
+    --vivalarc__sidebar-order: 1;
+    --vivalarc__page-order: 2;
+  }
+
+  #browser.tabs-right {
+    grid-template-columns: auto calc(var(--vivalarc--sidebar-width) * 1px);
+    --vivalarc__sidebar-order: 2;
+    --vivalarc__page-order: 1;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    #browser.tabs-left {
+      grid-template-columns: calc(var(--vivalarc--compact-sidebar-width) * 1px) auto;
+    }
+
+    #browser.tabs-right {
+      grid-template-columns: auto calc(var(--vivalarc--compact-sidebar-width) * 1px);
+    }
+  }
+
+  #webview-container {
+    grid-column: var(--vivalarc__page-order) / span 1;
+  }
+
+  [name="WorkspaceButton"],
+  .toolbar-mainbar[aria-label],
+  #tabs-container,
+  .toolbar-panel {
+    grid-column: var(--vivalarc__sidebar-order) / span 1;
+  }
+
+  #webview-container {
+    grid-row: 1 / -1;
+  }
+  .toolbar-mainbar[aria-label] {
+    grid-row: 1 / span 1;
+  }
+  [name="WorkspaceButton"] {
+    grid-row: 2 / span 1;
+  }
+  #tabs-container {
+    grid-row: 3 / span 1;
+  }
+  #tabs-subcontainer{
+    grid-row: 4 / span 1;
+    flex: 0 0 auto !important;
+    height: auto !important;
+  }
+  .toolbar-panel {
+    grid-row: 5 / span 1;
+  }
+
+  .window-buttongroup {
+    background-color: transparent;
+  }
+
+  @container style(--vivalarc--custom-window-controls: 0) {
+    .window-buttongroup {
+      position: relative !important;
+      left: unset !important;
+      right: unset !important;
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+      background-color: transparent;
+    }
+  }
+
+  .vivaldi {
+    position: relative;
+    top: unset !important;
+    margin-left: 5px !important;
+    margin-right: 0 !important;
+    padding: 0;
+    justify-self: center;
+  }
+
+  @container style(--vivalarc--is-vivalarc-menu-icon: 1) {
+    .vivaldi-v svg {
+      display: none;
+    }
+    .vivaldi-v {
+      width: 110%;
+      height: 110%;
+      background: url("icon.png") center right/calc(100% - 5px) no-repeat;
+    }
+  }
+
+  .toolbar-mainbar[aria-label],
+  #tabs-container,
+  #tabs-subcontainer {
+    padding: 0 5px !important;
+  }
+
+  .toolbar-mainbar[aria-label] {
+    --vivalarc__address-bar-row: 2;
+    --vivalarc__extensions-row: 3;
+    &:has(.window-buttongroup) {
+      --vivalarc__address-bar-row: 3;
+      --vivalarc__extensions-row: 4;
+    }
+
+    width: 100%;
+    height: auto !important;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-columns: repeat(
+      var(--vivalarc--toolbar-column-count),
+      calc(100% / var(--vivalarc--toolbar-column-count))
+    );
+
+    -webkit-app-region: drag;
+  }
+
+  #tabs-container > .resize {
+    max-height: 100% !important;
+  }
+
+  &:has(.window-buttongroup) {
+    .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 1fr;
+      --vivalarc__address-bar-row: 3;
+      --vivalarc__extensions-row: 4;
+      grid-template-rows: var(--vivalarc__window-controls-row-height) 1fr 1fr auto;
+    }
+
+    #browser.mac.tabs-left .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 40px;
+    }
+
+    #browser.mac.tabs-right .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 0;
+    }
+  }
+
+  #browser.mac .window-buttongroup {
+    height: var(--vivalarc__window-controls-row-height);
+  }
+
+  @container style(--vivalarc--is-hide-window-controls: 1) {
+    .window-buttongroup {
+      visibility: hidden;
+    }
+    .toolbar-mainbar[aria-label] {
+      --vivalarc__window-controls-row-height: 0 !important;
+    }
+  }
+
+  #browser.mac.tabs-right:not(.native, .fullscreen) {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 19px;
+      left: 21px;
+      width: 52px;
+      height: 13px;
+      background: white;
+      border-radius: 6.5px;
+      outline: 5px solid white;
+    }
+
+    &.isblurred::after {
+      opacity: 0.1;
+    }
+  }
+
+  #browser.mac.tabs-right .toolbar-mainbar[aria-label],
+  #browser.native .toolbar-mainbar[aria-label] {
+    padding-top: 5px !important;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    #browser:not(.mac) .toolbar-mainbar[aria-label] {
+      display: none;
+    }
+
+    #browser.mac {
+      .toolbar-mainbar[aria-label] {
+        .button-toolbar,
+        .UrlBar-AddressField,
+        .toolbar-extensions {
+          display: none;
+        }
+      }
+
+      &.tabs-right .toolbar-mainbar[aria-label] {
+        display: none;
+      }
+    }
+  }
+
+  .UrlBar-AddressField,
+  .toolbar-extensions,
+  .UrlBar-PrivateWindowIndicator {
+    grid-column: 1 / span var(--vivalarc--toolbar-column-count);
+  }
+
+  .UrlBar-AddressField {
+    grid-row-start: var(--vivalarc__address-bar-row);
+    z-index: 2;
+    margin: 0;
+    font-size: calc(
+      13px - calc(var(--vivalarc--address-bar-font-size-decrease) * 1px)
+    );
+  }
+
+  .UrlBar-AddressField:has(#urlFieldInput:focus) {
+    grid-column: 1 / -1;
+    height: 100% !important;
+    font-size: unset;
+  }
+
+  @container style(--vivalarc--is-address-bar-unfocused-partial: 1) {
+    .UrlFragment-LinkWrapper > .UrlFragment--Lowlight {
+      display: none;
+    }
+  }
+
+  @container style(--vivalarc--is-address-bar-unfocused-hide-icons: 1) {
+    &:not(:has(.ContentBlocker, #urlFieldInput:focus)) .ContentBlocker-Control {
+      display: none;
+    }
+    &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles)))
+      .UrlBar-AddressField:has(#urlFieldInput:not(:focus))
+      .toolbar-insideinput:last-child {
+      &
+        > *:not(
+          .UrlBar-UrlObfuscationWarning,
+          [class^="pageload"],
+          .BookmarkButton--Active
+        ),
+      &:has(.progressing) .UrlBar-UrlObfuscationWarning {
+        display: none;
+      }
+    }
+  }
+
+  @container style(--vivalarc--is-address-bar-focused-hide-icons: 1) {
+    .UrlBar-AddressField:has(#urlFieldInput:focus)
+      .toolbar-insideinput:last-child
+      > *:not(.UrlBar-UrlObfuscationWarning) {
+      display: none;
+    }
+    .UrlBar-AddressField:has(#urlFieldInput:focus)
+      .UrlBar-UrlObfuscationWarning {
+      margin-right: 5px;
+    }
+    .UrlBar-UrlField {
+      margin-right: 2px;
+    }
+  }
+
+  .pageload-ticker {
+    padding: 0 4px 0 0 !important;
+  }
+
+  .OmniDropdown {
+    top: 105%;
+    padding-top: 0;
+  }
+
+  .toolbar-extensions {
+    grid-row: var(--vivalarc__extensions-row) / span 1;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-extensions:empty {
+    display: block;
+  }
+
+  .toolbar-extensions:empty:after {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "🧩 No extensions installed";
+    opacity: 0.5;
+    font-size: 0.75rem;
+  }
+
+  .toolbar-extensions button {
+    min-width: unset !important;
+    width: 30px;
+    height: 30px !important;
+  }
+
+  [name="WorkspaceButton"] {
+    margin: 0 5px 5px 5px !important;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    [name="WorkspaceButton"] {
+      margin-top: 5px !important;
+    }
+
+    [name="WorkspaceButton"] .button-title {
+      display: none;
+    }
+
+    .toolbar-panel {
+      .toolbar-divider,
+      .toolbar-spacer {
+        display: none;
+      }
+    }
+  }
+
+  @container style(--vivalarc___is-panel-open: 1) {
+    #panels-container {
+      position: absolute !important;
+      z-index: 4 !important;
+    }
+
+    #browser.mac.tabs-left #panels-container {
+      padding-top: 50px;
+    }
+
+    #browser.mac.tabs-left .panel-group {
+      padding-top: 40px;
+    }
+
+    .toolbar-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: var(--backgroundBlur);
+      z-index: -1;
+    }
+
+    .toolbar-panel {
+      .toolbar-divider,
+      .toolbar-spacer {
+        display: none;
+      }
+    }
+  }
+
+  @container style(--vivalarc___is-panel-closed: 1) {
+    #panels-container {
+      position: absolute !important;
+      z-index: 4 !important;
+    }
+
+    #browser.mac.tabs-left #panels-container {
+      padding-top: 50px;
+    }
+
+    #browser.mac.tabs-left .panel-group {
+      padding-top: 40px;
+    }
+
+    .toolbar-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: var(--backgroundBlur);
+      z-index: -1;
+    }
+
+    .toolbar-panel {
+      .toolbar-divider,
+      .toolbar-spacer {
+        display: none;
+      }
+    }
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) and style(--vivalarc___is-panel-closed: 1) {
+    .toolbar-panel {
+      justify-content: center;
+    }
+  }
+
+  #tabs-container > .resize >.tab-strip {
+    overflow: hidden auto;
+    display: grid;
+    grid-template-columns: repeat(
+      var(--vivalarc--pinned-column-count),
+      minmax(0, 1fr)
+    );
+    grid-auto-rows: min-content;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .tab-wrapper,
+  .tab-strip .separator,
+  .newtab {
+    grid-column: 1 / span var(--vivalarc--pinned-column-count);
+  }
+
+  .tab-wrapper,
+  .tab-strip .separator {
+    position: relative;
+    transform: none;
+  }
+
+  .tab-wrapper {
+    margin: 0;
+    padding: 0;
+    max-height: unset;
+  }
+
+  .tab-strip .separator {
+    align-items: center;
+  }
+
+  .tab-strip .separator hr {
+    margin: 0;
+    width: 100%;
+  }
+
+  .tab-group-indicator {
+    position: relative;
+    top: unset !important;
+    padding: 0;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    .tab-group-indicator {
+      display: none;
+    }
+  }
+
+  .svg-tab-selection {
+    height: 100%;
+    max-height: unset !important;
+  }
+
+  .tab .title {
+    padding-left: 10px !important;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    .tab .favicon {
+      margin: 0;
+      display: flex;
+    }
+
+    .tab .title,
+    .tab .close {
+      display: none;
+    }
+  }
+
+  .tab-indicator {
+    border: 0;
+    margin: 0 !important;
+  }
+
+  .tab-indicator:first-child {
+    border-top-left-radius: var(--currentRadius);
+  }
+
+  .tab-indicator:last-child {
+    border-top-right-radius: var(--currentRadius);
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    .tab-header {
+      padding-left: 0;
+      justify-content: center;
+    }
+  }
+
+  @container not style(--vivalarc___is-compact-mode: 1) {
+    .is-pinned {
+      .tab-wrapper {
+        align-self: end;
+        grid-column: span 1;
+        aspect-ratio: 1;
+        flex-direction: column-reverse;
+        background-color: var(--colorAccentBgAlphaHeavy);
+      }
+
+      .group {
+        display: grid;
+      }
+
+      .tab,
+      .tab-group-indicator {
+        grid-column: 1 / -1;
+      }
+
+      .tab {
+        max-height: unset;
+        height: 100%;
+        grid-row: 1 / 3;
+        align-items: center;
+      }
+
+      .tab-group-indicator {
+        grid-row: 1 / 2;
+        column-gap: 2px;
+      }
+
+      .tab-header {
+        flex: 1 !important;
+        padding: 0;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .button-badge {
+        top: unset !important;
+        right: 2px !important;
+        bottom: 2px !important;
+        left: unset !important;
+      }
+
+      .tab-indicator:not(.active):not(:hover) {
+        background-color: var(--colorHighlightFgAlpha) !important;
+      }
+
+      .tab-indicator.active {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .tab-position:not(.is-pinned) {
+    .group {
+      margin-top: 0 !important;
+      border: 1px solid transparent;
+      height: 31px;
+    }
+
+    .group:hover {
+      border-color: var(--colorAccentBgAlpha);
+    }
+
+    .group:has(.tab.active) {
+      border-color: var(--colorBg);
+    }
+
+    .tab-group,
+    .tab-indicator {
+      height: 30px !important;
+    }
+
+    .tab-group {
+      flex: 0 0 28px;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+
+    @container style(--vivalarc___is-compact-mode: 1) {
+      .tab-group {
+        flex: 1;
+      }
+    }
+
+    .tab-indicator:first-child {
+      border-top-left-radius: 0;
+    }
+
+    .tab-indicator:last-child {
+      border-top-right-radius: var(--currentRadius);
+      border-bottom-right-radius: var(--currentRadius);
+    }
+
+    .tab-indicator:not(:last-child) {
+      border-right: 1px solid var(--colorAccentBgAlpha);
+    }
+
+    .group:has(.tab.active) .tab-indicator:not(:last-child) {
+      border-right: 1px solid var(--colorBg);
+    }
+
+    .tab-group.active:has(.close):hover {
+      .tab-header {
+        padding-left: 0;
+        justify-content: center;
+      }
+
+      @container not style(--vivalarc___is-compact-mode: 1) {
+        .favicon {
+          display: none;
+        }
+      }
+
+      .close {
+        margin: 0 !important;
+      }
+    }
+
+    .tab-indicator::before {
+      content: attr(title) attr(aria-label) !important;
+      font-size: 12px;
+      color: var(--colorAccentFg);
+      padding-left: 5px;
+      position: absolute;
+      width: calc(100% - 6px);
+      top: 50%;
+      transform: translateY(-50%);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .tab-wrapper:not(.active) .tab-indicator:hover,
+    .tab-indicator:not(.active):hover,
+    .group:has(.tab-group:hover) .tab-indicator.active {
+      background-color: var(--colorAccentBgAlpha) !important;
+    }
+  }
+
+  #browser:not(.ui-transparent-tabs) .tab-position:not(.is-pinned) {
+    .group:not(.active, :hover) .tab-indicator:not(:hover),
+    .tab-indicator:not(.active):not(:hover) {
+      background-color: var(--colorAccentBgAlphaHeavy) !important;
+    }
+  }
+
+  #browser.ui-transparent-tabs .tab-position:not(.is-pinned) {
+    .group:not(.active, :hover) .tab-indicator:not(:hover),
+    .tab-indicator:not(.active):not(:hover) {
+      background-color: transparent !important;
+    }
+  }
+
+  .tab-position:not(.is-pinned) .tab-indicator.active::before,
+  #browser.isblurred .tab-position:not(.is-pinned) .tab-indicator::before {
+    color: var(--colorFg);
+  }
+
+  .toolbar-tabbar-after {
+    flex: 1 1 35px;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    .toolbar-tabbar-after {
+      flex: 1 1 80px;
+    }
+  }
+
+  .toolbar-tabbar-after .toolbar-spacer-flexible {
+    display: none;
+  }
+
+  .newtab {
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    .sync-and-trash-container {
+      display: none;
+    }
+  }
+
+  #webview-container {
+    --colorBgDarker: transparent;
+    --colorBorder: transparent;
+    --colorBorderIntense: transparent;
+  }
+
+  #webpage-stack > .tiled {
+    padding: 5px !important;
+  }
+
+  .tiled {
+    gap: 6px;
+  }
+
+  .tiled .tile {
+    border: 0 !important;
+  }
+
+  @container not style(--vivalarc--webview-border: 0) {
+    #webview-container,
+    #webpage-stack > .tiled {
+      --vivalarc__border: calc(var(--vivalarc--webview-border) * 1px);
+      border: 0 solid transparent;
+    }
+
+    &:not(:has(.tiled.active)) {
+      #webview-container {
+        border-top-width: var(--vivalarc__border);
+        border-bottom-width: var(--vivalarc__border);
+      }
+
+      #browser.tabs-left #webview-container {
+        border-left-width: calc(var(--vivalarc__border) - 5px);
+        border-right-width: var(--vivalarc__border);
+      }
+
+      #browser.tabs-right #webview-container {
+        border-left-width: var(--vivalarc__border);
+        border-right-width: calc(var(--vivalarc__border) - 5px);
+      }
+    }
+
+    #webpage-stack > .tiled {
+      border-top-width: calc(var(--vivalarc__border) - 5px);
+      border-bottom-width: calc(var(--vivalarc__border) - 5px);
+    }
+
+    #browser.tabs-left #webpage-stack > .tiled {
+      border-left-width: calc(var(--vivalarc__border) - 10px);
+      border-right-width: calc(var(--vivalarc__border) - 5px);
+    }
+
+    #browser.tabs-right #webpage-stack > .tiled {
+      border-left-width: calc(var(--vivalarc__border) - 5px);
+      border-right-width: calc(var(--vivalarc__border) - 10px);
+    }
+  }
+
+  @container not style(--vivalarc--webview-border-radius: 0) {
+    #webpage-stack,
+    .tiled.webpageview {
+      border-radius: calc(var(--vivalarc--webview-border-radius) * 1px) !important;
+    }
+  }
+
+  @container not style(--vivalarc--webview-shadow-size: 0) {
+    #webpage-stack:not(:has(.tiled.active)),
+    .tiled.webpageview:not(.active) {
+      box-shadow: 0 0 calc(var(--vivalarc--webview-shadow-size) * 1px)
+        rgba(var(--vivalarc--webview-shadow-color));
+    }
+  }
+
+  @container style(--vivalarc--is-individual-tiled-tab-header: 1) {
+    .tiled .webpage webview[src] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &::before {
+        content: "🔗 " attr(src);
+        padding: 0.25rem 0;
+        width: 80%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .button-toolbar:has(> [name="UpdateButton"]) {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: calc(var(--vivalarc--webview-border) * 1px) solid var(--colorWindowBg);
+    box-shadow: none;
+  }
+}
+
+/* ---------- Vivaldi 8.0 Stack Tab Fix ---------- */
+
+#tabs-subcontainer .tab-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px;
+}
+
+#tabs-subcontainer .title {
+  display: flex !important;
+  flex: 1 1 auto;
+  margin-left: -5px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: auto !important;
+  max-width: none !important;
+  line-height: 20px;
+}
+
+#tabs-subcontainer .favicon {
+  flex: 0 0 auto;
+}
+
+#tabs-subcontainer .close {
+  flex: 0 0 auto;
+}
+
+/* ===== 修复侧边栏右侧裁切 ===== */
+#tabs-tabbar-container,
+.tabbar-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+#tabs-subcontainer .tab-strip,
+#tabs-subcontainer .tab-position,
+#tabs-subcontainer .tab-wrapper {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ===== 8.0 网站权限弹窗位置修复 ===== */
+
+/* 强制弹窗从地址栏右侧弹出，避免被侧边栏遮挡 */
+.UrlBar-AddressField .button-popup,
+.UrlBar-AddressField .toolbar-popup,
+.button-popup:has([class*="permission"]),
+.button-popup:has([class*="SiteInfo"]),
+.button-popup:has(.toggle) {
+  position: fixed !important;
+  left: calc(var(--vivalarc--sidebar-width) * 1px + 156px) !important;
+  top: 34px !important;
+  z-index: 100000 !important;
+  -webkit-app-region: no-drag !important;
+  app-region: no-drag !important;
+  opacity: 1 !important;
+  background: var(--colorBg, #ffffff) !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25) !important;
+  overflow: visible !important;
+  max-width: 360px !important;
+}
+
+/* 弹窗内部禁止拖拽继承 */
+.UrlBar-AddressField .button-popup *,
+.button-popup:has([class*="permission"]) *,
+.button-popup:has([class*="SiteInfo"]) * {
+  -webkit-app-region: no-drag !important;
+  app-region: no-drag !important;
+}
+
+/* 确保地址栏不会裁切弹窗 */
+.UrlBar-AddressField {
+  overflow: visible !important;
+}
+
+.toolbar-tabbar-after,
+.sync-and-trash-container,
+.toolbar-tabbar.subcontainer-lock {
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* ===== 最终修复：二级栈中的固定标签强制全宽显示标题 ===== */
+
+#tabs-subcontainer .tab-position.is-pinned {
+  --Width: 100% !important;
+  --Height: 32px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  aspect-ratio: auto !important;
+  display: flex !important;
+}
+
+#tabs-subcontainer .tab-position.is-pinned .tab-wrapper,
+#tabs-subcontainer .tab-position.is-pinned .tab {
+  width: 100% !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#tabs-subcontainer .tab-position.is-pinned .tab-header {
+  display: flex !important;
+  width: 100% !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+#tabs-subcontainer .tab-position.is-pinned .title {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex: 1 1 auto !important;
+  width: auto !important;
+  max-width: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  margin-left: 6px !important;
+  font-size: 12px !important;
+  color: var(--colorFg) !important;
+}
+
+#tabs-subcontainer .tab-position.is-pinned .favicon {
+  display: flex !important;
+  flex-shrink: 0 !important;
+  margin: 0 0 0 4px !important;
+}
+
+/* ===== 强制 WebView 上下边距对称 ===== */
+
+#webview-container {
+  border-top-width: calc(var(--vivalarc--webview-border) * 1px) !important;
+  border-bottom-width: calc(var(--vivalarc--webview-border) * 1px) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#webpage-stack {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* 确保网格行不会额外撑开上下 */
+#browser {
+  grid-template-rows: auto auto 1fr auto auto !important;
+}
+
