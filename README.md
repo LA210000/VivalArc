@@ -33,9 +33,11 @@
 
 ## :camera_flash: Preview
 
-| ![](./preview/Preview.png) | ![](./preview/Two-LevelStackedTabs.png) | ![](./preview/FloatingAddressBar.png) |
-| :------------------------: | :-------------------------------------: | :-----------------------------------: |
-|        **Preview**         |       **Two-Level Stacked tabs**        |       **Floating Address Bar**        |
+|      ![](./preview/GridLayout.png)      |     ![](./preview/FlexLayout.png)     | ![](./preview/FlexLayout2.png) |
+| :-------------------------------------: | :-----------------------------------: | :----------------------------: |
+|             **Grid Layout**             |           **Flex Flayout**            |       **Flex Layout 2**        |
+| ![](./preview/Two-LevelStackedTabs.png) | ![](./preview/FloatingAddressBar.png) |                                |
+|       **Two-Level Stacked tabs**        |       **Floating Address Bar**        |                                |
 
 # :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 

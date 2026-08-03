@@ -33,9 +33,11 @@
 
 ## :camera_flash: 预览
 
-| ![](./preview/Preview.png) | ![](./preview/Two-LevelStackedTabs.png) | ![](./preview/FloatingAddressBar.png) |
-| :------------------------: | :-------------------------------------: | :-----------------------------------: |
-|          **预览**          |            **两级式标签栈**             |            **浮动地址栏**             |
+|      ![](./preview/GridLayout.png)      |     ![](./preview/FlexLayout.png)     | ![](./preview/FlexLayout2.png) |
+| :-------------------------------------: | :-----------------------------------: | :----------------------------: |
+|              **Grid 布局**              |             **Flex 布局**             |        **Flex 布局 2**         |
+| ![](./preview/Two-LevelStackedTabs.png) | ![](./preview/FloatingAddressBar.png) |                                |
+|            **两级式标签栈**             |            **浮动地址栏**             |                                |
 
 # :gear: 安装 ([视频](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
