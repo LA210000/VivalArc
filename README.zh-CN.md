@@ -44,7 +44,7 @@
 1. （新用户初始化设置）在“**选择样式**”步骤中，选择“**经典**”；
 2. 新建一个文件夹以存放下载的 mod；
 3. 右键点击 **[here](https://github.com/LA210000/VivalArc/blob/master/VivalArc.css)** 选择 "**链接另存为...**" 将文件 VivalArc.css 另存到步骤 2 中新建的文件夹 ;
-4. 浏览器地址栏访问 **`vivaldi:flags`** 并搜索 "**Allow CSS modifications**"，将右侧 "**Default**" 切换为 "**Enabled**" ;
+4. 浏览器地址栏访问 **`vivaldi:flags`** 并搜索 "**Allow CSS modifications**"，将右侧 "**Default**" 切换为 "**Enabled**" , "**VivalArc_for8.2.4116.3**" 请将 "**Horizontal pinned tabs in vertical tab bars**" 切换为 "**Enabled**";
 5. 打开 Vivaldi “**设置**” ;
    - “**一般**” ➔ “**启动**” ➔ “**默认浏览器**”，取消选中“**在启动时检查**”；
    - （非新用户初始化设置）“**外观**” ➔ “**外观预设**” 选择 “**经典**”；

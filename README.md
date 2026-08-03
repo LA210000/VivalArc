@@ -44,7 +44,7 @@
 1. (If going through onboarding) At the "**Choose a style**" step, select "**Classic**" ;
 2. Create a folder to download the mod into ;
 3. Download the mod by right-clicking **[here](https://github.com/LA210000/VivalArc/blob/master/VivalArc.css)** then "**Save Link As...**" to the folder created in step 2 ;
-4. Go to **`vivaldi:flags`** and next to "**Allow CSS modifications**", switch "**Default**" to "**Enabled**" ;
+4. Go to **`vivaldi:flags`** and next to "**Allow CSS modifications**", switch "**Default**" to "**Enabled**" , "**VivalArc_for8.2.4116.3**" need to switch "**Horizontal pinned tabs in vertical tab bars**" to "**Enabled**";
 5. Open Vivaldi settings ;
    - Under "**General**" ➔ "**Startup**" ➔ "**Default Browser**", uncheck "**Check on Startup**" ;
    - (If not gone through onboarding) Under "**Appearance**" ➔ "**Layout Presets**", select "**Classic**" ;
