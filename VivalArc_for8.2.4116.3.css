@@ -1485,7 +1485,7 @@
 #tabs-subcontainer .title {
   display: flex !important;
   flex: 1 1 auto;
-  margin-left: -5px !important;
+  margin-left: -6px !important;
   visibility: visible !important;
   opacity: 1 !important;
   width: auto !important;
@@ -1495,6 +1495,7 @@
 
 #tabs-subcontainer .favicon {
   flex: 0 0 auto;
+  margin-left: 5px !important;
 }
 
 #tabs-subcontainer .close {
