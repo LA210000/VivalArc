@@ -33,6 +33,7 @@
   --vivalarc--is-address-bar-unfocused-partial: 0;
   --vivalarc--is-address-bar-unfocused-hide-icons: 1;
   --vivalarc--is-address-bar-focused-hide-icons: 0;
+  --vivalarc--pinned-flex-layout: 1;   /* 1 = flexbox，0 = grid */
   --vivalarc--pinned-column-count: 3;
   --vivalarc--webview-border: 10;
   --vivalarc--webview-border-radius: 12;
@@ -42,6 +43,7 @@
   --vivalarc--is-hide-window-controls: 0;
   --vivalarc--is-hide-content-blocker: 1;
   --vivalarc--hide-workspace-button: 1;
+  --vivalarc--hide-translate-button: 1;
   --vivalarc--custom-window-controls: 2;
   --vivalarc--custom-window-controls-minimize-color: #e69b00;
   --vivalarc--custom-window-controls-maximize-color: #028a0f;
@@ -89,6 +91,18 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+  }
+}
+
+/* 隐藏地址栏翻译按钮 */
+@container style(--vivalarc--hide-translate-button: 1) {
+  .UrlBar-AddressField .ToolbarButton-Button[title*="Translate"],
+  .UrlBar-AddressField .ToolbarButton-Button[title*="翻译"],
+  .UrlBar-AddressField button[title*="Translate"],
+  .UrlBar-AddressField button[title*="翻译"],
+  .UrlBar-AddressField .ToolbarButton-Button[aria-label*="Translate"],
+  .UrlBar-AddressField .ToolbarButton-Button[aria-label*="翻译"] {
+    display: none !important;
   }
 }
 
@@ -1084,13 +1098,10 @@
     }
   }
 
-  #tabs-container > .resize >.tab-strip {
+  #tabs-container > .resize > .tab-strip {
     overflow: hidden auto;
     display: grid;
-    grid-template-columns: repeat(
-      var(--vivalarc--pinned-column-count),
-      minmax(0, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
     grid-auto-rows: min-content;
     gap: 5px;
     justify-content: center;
@@ -1620,3 +1631,179 @@
   grid-template-rows: auto auto 1fr auto auto !important;
 }
 
+/* ========== 固定标签页布局切换 ========== */
+/*  #vivaldi-horizontal-pinned-tabs needed  */
+/* 1 = flexbox 布局（最多3列，最后一行只拉宽、行高固定） */
+@container style(--vivalarc--pinned-flex-layout: 1) {
+  .pinned-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+    justify-content: flex-start !important;
+    align-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    position: relative !important;
+    margin-bottom: 5px !important;
+    padding: 0 !important;
+    z-index: 10 !important;
+    /* 清掉 Vivaldi 横向定位 */
+    x: unset !important;
+    y: unset !important;
+    left: unset !important;
+    top: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    transform: none !important;
+  }
+
+  .pinned-group > span {
+    flex: 1 1 calc(33.333% - 5px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+    aspect-ratio: unset !important;
+    position: relative !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .pinned-group .tab-position.is-pinned {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    --PositionX: unset !important;
+    --PositionY: unset !important;
+    --Width: unset !important;
+    --Height: unset !important;
+    --ZIndex: unset !important;
+  }
+
+  .pinned-group .tab-position.is-pinned .tab-wrapper,
+  .pinned-group .tab-position.is-pinned .tab {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  @container not style(--vivalarc___is-compact-mode: 1) {
+    .pinned-group .tab-position.is-pinned .tab-wrapper {
+      background-color: var(--colorAccentBgAlphaHeavy) !important;
+      border-radius: var(--radius, 8px) !important;
+    }
+    .pinned-group .tab-position.is-pinned .title,
+    .pinned-group .tab-position.is-pinned .close {
+      display: none !important;
+    }
+    .pinned-group .tab-position.is-pinned .favicon {
+      margin: 0 !important;
+      display: flex !important;
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+
+  @container style(--vivalarc___is-compact-mode: 1) {
+    .pinned-group .tab-position.is-pinned .title,
+    .pinned-group .tab-position.is-pinned .close {
+      display: none !important;
+    }
+    .pinned-group .tab-position.is-pinned .favicon {
+      margin: 0 !important;
+      display: flex !important;
+    }
+  }
+}
+
+/* 0 = 恢复 grid 布局（固定3列，不足时不拉宽） */
+@container style(--vivalarc--pinned-flex-layout: 0) {
+  .pinned-group {
+    display: grid !important;
+    grid-template-columns: repeat(var(--vivalarc--pinned-column-count), 1fr) !important;
+    grid-auto-rows: min-content !important;
+    gap: 5px !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    position: relative !important;
+    margin-bottom: 5px !important;
+    z-index: 10 !important;
+    /* 清掉 Vivaldi 横向定位 */
+    x: unset !important;
+    y: unset !important;
+    left: unset !important;
+    top: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    transform: none !important;
+  }
+
+  .pinned-group > span {
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .pinned-group .tab-position.is-pinned {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    --PositionX: unset !important;
+    --PositionY: unset !important;
+    --Width: unset !important;
+    --Height: unset !important;
+  }
+
+  .pinned-group .tab-position.is-pinned .tab-wrapper,
+  .pinned-group .tab-position.is-pinned .tab {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @container not style(--vivalarc___is-compact-mode: 1) {
+    .pinned-group .tab-position.is-pinned .tab-wrapper {
+      background-color: var(--colorAccentBgAlphaHeavy) !important;
+      border-radius: var(--radius, 8px) !important;
+    }
+    .pinned-group .tab-position.is-pinned .title,
+    .pinned-group .tab-position.is-pinned .close {
+      display: none !important;
+    }
+    .pinned-group .tab-position.is-pinned .favicon {
+      margin: 0 !important;
+      display: flex !important;
+    }
+  }
+}
