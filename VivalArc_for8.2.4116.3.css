@@ -451,6 +451,7 @@
     background: var(--colorBgIntserAlpha) !important;
     margin-left: -30px !important;
     backdrop-filter: blur(10px);
+    z-index: 100000 !important;
   }
 
   .sortselector.sortselector-compact {
@@ -809,6 +810,7 @@
   #tabs-container,
   #tabs-subcontainer {
     padding: 0 5px !important;
+    z-index: 5;
   }
 
   .toolbar-mainbar[aria-label] {
@@ -1509,6 +1511,7 @@
   max-width: 100% !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
+  z-index: 5;
 }
 
 #tabs-subcontainer .tab-strip,
