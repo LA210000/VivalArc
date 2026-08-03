@@ -1665,16 +1665,15 @@
     flex: 1 1 calc(33.333% - 5px) !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    height: 58px !important;
-    min-height: 58px !important;
-    max-height: 58px !important;
+    height: 67px !important;
+    min-height: 67px !important;
+    max-height: 67px !important;
     aspect-ratio: unset !important;
     position: relative !important;
     display: block !important;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    overflow: hidden !important;
   }
 
   .pinned-group .tab-position.is-pinned {
