@@ -16,7 +16,7 @@
 
 - **Enhanced Vivaldi features** :
 
-    - **Pinned tabs** : Displayed as icon-only grid ;
+    - **Pinned tabs** : Displayed as icon-only grid or flexbox, starting in version 8.2.x, pinned tabs stick to the scrollable area;
     - **Stacked tabs** : Two-Level Tab Stacks with titles ;
     - **Compact mode** : Icon-only sidebar, implemented under the "panel toggle" command, keyboard shortcut assignable ;
     - **Vivaldi menu icon** : Vivaldi menu icon customizable ;
@@ -78,14 +78,16 @@ While the mod aims to be compatible with as many native customization features a
 | `is-auto-compact-mode`                | Whether to use auto-compact-mode.                            | `1` = enable<br>`0` = disable           | `0`             |
 | `is-vivalarc-menu-icon`               | Whether to show VivalArc's logo in place of Vivaldi's as menu button.<sup>(3)</sup> | `1` = enable<br>`0` = disable           | `1`             |
 | `toolbar-column-count`                | Number of toolbar buttons.<sup>(4)</sup>                     | Any quantity                            | `6`             |
+| `expand-extensions`                   | Center the toolbar buttons.                                  | `1` = enable<br/>`0` = disable          | `1`             |
 | `address-bar-font-size-decrease`      | Lower the character size of the URL to display more of it.   | Any number (in pixels)<br>`0` = disable | `1`             |
 | `is-address-bar-unfocused-partial`    | Whether to hide "unimportant"<sup>(5)</sup> parts of the URL when the bar is not focused. | `1` = enable<br>`0` = disable           | `0`             |
 | `is-address-bar-unfocused-hide-icons` | Whether to hide icons<sup>(6)</sup> in the URL bar when not focused to see more of the URL. | `1` = enable<br>`0` = disable           | `1`             |
 | `is-address-bar-focused-hide-icons`   | Whether to hide icons<sup>(6)</sup> in the URL bar when focused to see more of the URL. | `1` = enable<br>`0` = disable           | `0`             |
+| `pinned-flex-layout`                  | Pinned-tabs layout.<sup>(7)</sup>                            | `1` = Flexbox<br/>`0` = Grid            | `1`             |
 | `pinned-column-count`                 | Number of pinned tabs per row.                               | Any quantity                            | `3`             |
-| `webview-border`                      | Amount of space around the page content.<sup>(7)</sup>       | Any number (in pixels)<br>`0` = disable | `10`            |
-| `webview-border-radius`               | Round the corners of the page content.<sup>(8)</sup>         | Any quantity<br>`0` = disable           | `12`            |
-| `webview-shadow-size`                 | Amount of shadow around the page content.<sup>(9)</sup>      | Any number (in pixels)<br>`0` = disable | `10`            |
+| `webview-border`                      | Amount of space around the page content.<sup>(8)</sup>       | Any number (in pixels)<br>`0` = disable | `10`            |
+| `webview-border-radius`               | Round the corners of the page content.<sup>(9)</sup>         | Any quantity<br>`0` = disable           | `12`            |
+| `webview-shadow-size`                 | Amount of shadow around the page content.<sup>(10)</sup>     | Any number (in pixels)<br>`0` = disable | `10`            |
 | `webview-shadow-color`                | Color of shadow around the page content.                     | Comma-separated RGBA values             | `0, 0, 0, 0.25` |
 
 <sup>(1)</sup> Unfortunately, the sidebar cannot be resized by drag-and-drop.<br>
@@ -94,9 +96,9 @@ While the mod aims to be compatible with as many native customization features a
 <sup>(4)</sup> Unfortunately, the toolbar cannot have more than one row (unless hard-coded to do so, trust me I tried hard).<br>
 <sup>(5)</sup> Path and query parameters.<br>
 <sup>(6)</sup> Except the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.<br>
-<sup>(7)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
-<sup>(8)</sup> When enabled, default value is `12`.<br>
-<sup>(9)</sup> To copy Zen Browser, default value is `10`.
+<sup>(7)</sup> See the preview section.<br><sup>(8)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
+<sup>(9)</sup> When enabled, default value is `12`.<br>
+<sup>(10)</sup> To copy Zen Browser, default value is `10`.
 
 ### Additional features
 
@@ -114,10 +116,10 @@ While the mod aims to be compatible with as many native customization features a
 | `custom-window-controls-windows-style-height` | Customization to make the Stylized Window buttons longer or shorter. | Any number (in pixels)                                       | `20`      |
 | `vertical-extensions`                         | Enable or Disable Vertical Extensions.                       | `1` = enable<br>`0` = disable                                | `0`       |
 | `custom-simplified-downloads`                 | Enable or Disable Simplified Downloads List for Address Bar Toolbar Button. | `1` = enable<br>`0` = disable                                | `1`       |
-| `custom-simplified-downloads-files`           | Number of files displayed in the Downloads List.<sup>(10)</sup> | Any quantity                                                 | `7`       |
+| `custom-simplified-downloads-files`           | Number of files displayed in the Downloads List.<sup>(11)</sup> | Any quantity                                                 | `7`       |
 | floating-address-bar                          | Show a floating address bar centered within the browser window. | `1` = enable<br/>`0` = disable                               | `1`       |
 
-<sup>(10)</sup> Minimum is 4 items, i could not make it work to have below 4 items in the list.
+<sup>(11)</sup> Minimum is 4 items, i could not make it work to have below 4 items in the list.
 
 Applying modifications requires restarting Vivaldi.
 

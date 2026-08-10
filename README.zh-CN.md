@@ -12,18 +12,16 @@
 
 - **支持的 Vivaldi 功能**：
 
-    标签栏位置居左侧/右侧，来自 themes.vivaldi.net 的主题，切换用户界面、面板、弹出窗口、拆分标签页；
+  标签栏位置居左侧/右侧，来自 themes.vivaldi.net 的主题，切换用户界面、面板、弹出窗口、拆分标签页；
 
 - **Vivaldi 增强功能**：
-
-    - **固定标签页**：以网格图标显示固定标签页；
-    - **标签栈** : 显示标题的两级式标签栈；
-    - **紧凑模式**：仅显示图标样式侧边栏，通过“面板”开关命令实现，可分配键盘快捷键；
-    - **Vivaldi 菜单图标**：可自定义的 Vivaldi 菜单图标；
-    - **工具栏图标**：可自定义数量的工具栏图标。
+  - **固定标签页**：以网格图标显示固定标签页，从 Vivaldi 8.2.x 版本开始，固定标签页不再随标签页列表滚动；
+  - **标签栈** : 显示网站标题的两级式标签栈；
+  - **紧凑模式**：仅显示图标样式侧边栏，通过“面板”开关命令实现，可分配键盘快捷键；
+  - **Vivaldi 菜单图标**：可自定义的 Vivaldi 菜单图标；
+  - **工具栏图标**：可自定义数量的工具栏图标。
 
 - **附加功能** :
-  
   - **扩展弹窗**：垂直扩展弹窗，可选，默认关闭；
   - **滚动条**：默认隐藏滚动条；
   - **窗口控制按钮**：Windows 或 MacOS 样式按钮，可选；
@@ -50,7 +48,7 @@
    - （非新用户初始化设置）“**外观**” ➔ “**外观预设**” 选择 “**经典**”；
    - （可选，Mac 用户推荐开启）“**外观**” ➔ “**窗口外观**” 选中“**使用原生窗口**”；
    - “**外观**” ➔ “**窗口外观**” ➔ ”**状态栏**“，选中”**悬浮状态信息**“或”**隐藏状态栏**“；
-   - “**外观**”  ➔ “**自定义外观模组**”，选择步骤 2 新建的文件夹；
+   - “**外观**” ➔ “**自定义外观模组**”，选择步骤 2 新建的文件夹；
    - “**标签页**” ➔ “**标签页**” ➔ “**标签栏位置**”，选中”**左侧**“或”**右侧**“；
    - “**标签栏**” ➔ “**标签页显示**” ➔ “**标签页选项**”，取消选中 “**显示弹出缩略图**”；
    - “**标签栏**” ➔ “**标签栏功能**” ➔ “**标签栈**”，选中 ”**两级式**“；
@@ -71,22 +69,24 @@
 
 ### Vivaldi 增强功能
 
-| 变量                                  | 描述                                                         | 值                                    | 默认值          |
-| :------------------------------------ | ------------------------------------------------------------ | ------------------------------------- | --------------- |
-| `sidebar-width`                       | 侧边栏宽度<sup>(1)</sup>                                     | 任意数值 (单位：pixels)               | `220`           |
-| `compact-sidebar-width`               | 紧凑模式下的侧边栏宽度<sup>(1, 2)</sup>                      | 任意数值 (单位：pixels)               | `50`            |
-| `is-auto-compact-mode`                | 启用自动紧凑模式                                             | `1` = 启用<br>`0` = 禁用              | `0`             |
+| 变量                                  | 描述                                                           | 值                                    | 默认值          |
+| :------------------------------------ | -------------------------------------------------------------- | ------------------------------------- | --------------- |
+| `sidebar-width`                       | 侧边栏宽度<sup>(1)</sup>                                       | 任意数值 (单位：pixels)               | `220`           |
+| `compact-sidebar-width`               | 紧凑模式下的侧边栏宽度<sup>(1, 2)</sup>                        | 任意数值 (单位：pixels)               | `50`            |
+| `is-auto-compact-mode`                | 启用自动紧凑模式                                               | `1` = 启用<br>`0` = 禁用              | `0`             |
 | `is-vivalarc-menu-icon`               | 使用 VivalArc's logo 替代 Vivaldi 原生的菜单按钮<sup>(3)</sup> | `1` = 启用<br/>`0` = 禁用             | `1`             |
-| `toolbar-column-count`                | 工具栏图标数量<sup>(4)</sup>                                 | 任意数值                              | `6`             |
-| `address-bar-font-size-decrease`      | 降低 URL 的字符大小以显示更多内容                            | 任意数值 (单位：pixels)<br>`0` = 禁用 | `1`             |
-| `is-address-bar-unfocused-partial`    | 地址栏未获得焦点时隐藏 URL 中“不重要”<sup>(5)</sup>的部分    | `1` = 启用<br/>`0` = 禁用             | `0`             |
-| `is-address-bar-unfocused-hide-icons` | 地址栏未获得焦点时隐藏 URL 中“的图标<sup>(6)</sup>           | `1` = 启用<br/>`0` = 禁用             | `1`             |
+| `toolbar-column-count`                | 工具栏图标数量<sup>(4)</sup>                                   | 任意数值                              | `6`             |
+| `expand-extensions`                   | 居中工具栏扩展图标                                             | `1` = 启用<br/>`0` = 禁用             | `1`             |
+| `address-bar-font-size-decrease`      | 降低 URL 的字符大小以显示更多内容                              | 任意数值 (单位：pixels)<br>`0` = 禁用 | `1`             |
+| `is-address-bar-unfocused-partial`    | 地址栏未获得焦点时隐藏 URL 中“不重要”<sup>(5)</sup>的部分      | `1` = 启用<br/>`0` = 禁用             | `0`             |
+| `is-address-bar-unfocused-hide-icons` | 地址栏未获得焦点时隐藏 URL 中“的图标<sup>(6)</sup>             | `1` = 启用<br/>`0` = 禁用             | `1`             |
 | `is-address-bar-focused-hide-icons`   | 地址栏获得焦点时隐藏 URL 中“的图标<sup>(6)</sup>以显示更多内容 | `1` = 启用<br/>`0` = 禁用             | `0`             |
-| `pinned-column-count`                 | 固定标签页的列数                                             | 任意数值                              | `3`             |
-| `webview-border`                      | 页面内容边距<sup>(7)</sup>                                   | 任意数值(单位：pixels)<br>`0` = 禁用  | `10`            |
-| `webview-border-radius`               | 页面内容圆角<sup>(8)</sup>                                   | 任意数值<br>`0` = 禁用                | `12`            |
-| `webview-shadow-size`                 | 页面内容阴影大小<sup>(9)</sup>                               | 任意数值 (单位：pixels)<br>`0` = 禁用 | `10`            |
-| `webview-shadow-color`                | 页面内容阴影颜色                                             | 逗号（英文）分隔的 RGBA 值            | `0, 0, 0, 0.25` |
+| `pinned-flex-layout`                  | 固定标签页布局<sup>(7)</sup>                                   | `1` = Flexbox<br/>`0` = Grid          | `1`             |
+| `pinned-column-count`                 | 固定标签页的列数                                               | 任意数值                              | `3`             |
+| `webview-border`                      | 页面内容边距<sup>(8)</sup>                                     | 任意数值(单位：pixels)<br>`0` = 禁用  | `10`            |
+| `webview-border-radius`               | 页面内容圆角<sup>(9)</sup>                                     | 任意数值<br>`0` = 禁用                | `12`            |
+| `webview-shadow-size`                 | 页面内容阴影大小<sup>(10)</sup>                                | 任意数值 (单位：pixels)<br>`0` = 禁用 | `10`            |
+| `webview-shadow-color`                | 页面内容阴影颜色                                               | 逗号（英文）分隔的 RGBA 值            | `0, 0, 0, 0.25` |
 
 <sup>(1)</sup> 很遗憾，侧边栏无法再通过拖拽来调整大小。<br>
 <sup>(2)</sup> 在 Mac 上，如果左侧使用非原生窗口控件，建议值为 `90`。<br>
@@ -94,30 +94,32 @@
 <sup>(4)</sup> 遗憾的是，工具栏不能超过一行（除非硬编码，相信我，我努力尝试过）。<br>
 <sup>(5)</sup> 路径与查询参数。<br>
 <sup>(6)</sup> 以下除外：有效/无效的 HTTP(S)、模糊域名、加载中。<br>
-<sup>(7)</sup> 会减少页面内容区域大小。若启用此功能，建议值为 `10`。值过低会导致普通标签页和拆分标签页之间出现不可避免的页面内容宽度不一致。<br>
-<sup>(8)</sup> 若启用，建议值为 `12`。<br>
-<sup>(9)</sup> 为了模仿 Zen Browser，默认值为 `10`.
+<sup>(7)</sup> 参考 :camera_flash: 预览 部分。<br>
+<sup>(8)</sup> 会减少页面内容区域大小。若启用此功能，建议值为 `10`。值过低会导致普通标签页和拆分标签页之间出现不可避免的页面内容宽度不一致。<br>
+<sup>(9)</sup> 若启用，建议值为 `12`。<br>
+<sup>(10)</sup> 为了模仿 Zen Browser，默认值为 `10`.
 
 ### 附加功能
 
-| 变量                                          | 描述                                                         | 值                                                           | 默认值    |
-| --------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------- |
+| 变量                                          | 描述                                                                            | 值                                                           | 默认值    |
+| --------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
 | `is-individual-tiled-tab-header`              | 为 Vivaldi 的平铺标签页中的每一个独立分屏，单独添加一个带有网页链接的顶部标题栏 | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
-| `is-hide-window-controls`                     | 隐藏 Windows 控制按钮                                        | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
-| `is-hide-content-blocker`                     | 隐藏 Vivaldi 浏览器自带的“内容拦截器（广告拦截）”图标        | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
-| `hide-workspace-button`                       | 隐藏工作区按钮                                               | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
-| `custom-window-controls`                      | 美化窗口控制按钮                                             | `0` = 禁用<br>`1` = 个性化 Windows 风格<br>`2` = Mac OS 风格 | `2`       |
-| `custom-window-controls-minimize-color`       | 最小化按钮的颜色                                             | 任意 Hex 值                                                  | `#E69B00` |
-| `custom-window-controls-maximize-color`       | 最大化按钮的颜色                                             | 任意 Hex 值                                                  | `#028A0F` |
-| `custom-window-controls-close-color`          | 关闭按钮的颜色                                               | 任意 Hex 值                                                  | `#BF4040` |
-| `custom-window-controls-more-toolbar-space`   | 使用个性化窗口控制按钮的补偿机制，为工具栏按钮留出更多空间   | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
-| `custom-window-controls-windows-style-height` | 窗口控制按钮的高度                                           | 任意数值 (单位：pixels)                                      | `20`      |
-| `vertical-extensions`                         | 启用垂直扩展列表                                             | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
-| `custom-simplified-downloads`                 | 简化工具栏按钮的下载列表                                     | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
-| `custom-simplified-downloads-files`           | 下载列表显示的文件数量<sup>(10)</sup>                        | 任意数值                                                     | `7`       |
-| floating-address-bar                          | 浮动地址栏，浏览器窗口居中显示，URL 文本居中对齐             | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
+| `is-hide-window-controls`                     | 隐藏 Windows 控制按钮                                                           | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
+| `is-hide-content-blocker`                     | 隐藏 Vivaldi 浏览器自带的“内容拦截器（广告拦截）”图标                           | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
+| `hide-workspace-button`                       | 隐藏工作区按钮                                                                  | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
+| `hide-translate-button`                       | 隐藏翻译按钮                                                                    | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
+| `custom-window-controls`                      | 美化窗口控制按钮                                                                | `0` = 禁用<br>`1` = 个性化 Windows 风格<br>`2` = Mac OS 风格 | `2`       |
+| `custom-window-controls-minimize-color`       | 最小化按钮的颜色                                                                | 任意 Hex 值                                                  | `#E69B00` |
+| `custom-window-controls-maximize-color`       | 最大化按钮的颜色                                                                | 任意 Hex 值                                                  | `#028A0F` |
+| `custom-window-controls-close-color`          | 关闭按钮的颜色                                                                  | 任意 Hex 值                                                  | `#BF4040` |
+| `custom-window-controls-more-toolbar-space`   | 使用个性化窗口控制按钮的补偿机制，为工具栏按钮留出更多空间                      | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
+| `custom-window-controls-windows-style-height` | 窗口控制按钮的高度                                                              | 任意数值 (单位：pixels)                                      | `20`      |
+| `vertical-extensions`                         | 启用垂直扩展列表                                                                | `1` = 启用<br/>`0` = 禁用                                    | `0`       |
+| `custom-simplified-downloads`                 | 简化工具栏按钮的下载列表                                                        | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
+| `custom-simplified-downloads-files`           | 下载列表显示的文件数量<sup>(11)</sup>                                           | 任意数值                                                     | `7`       |
+| floating-address-bar                          | 浮动地址栏，浏览器窗口居中显示，URL 文本居中对齐                                | `1` = 启用<br/>`0` = 禁用                                    | `1`       |
 
-<sup>(10)</sup> 最少为 4 件，数量低于 4 时无法。
+<sup>(11)</sup> 最少为 4 件，数量低于 4 时无法。
 
 应用修改需要重启 Vivaldi。
 

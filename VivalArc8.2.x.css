@@ -69,6 +69,27 @@
 }
 
 /*========================
+  Fix: Hide "Link copied" / overlay info bubble
+  Prevents temporary blank space between address bar
+  and pinned tabs when copying a link address
+========================*/
+
+.overlayinfobubble,
+div:has(> .overlayinfobubble) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/*========================
   Expand Toolbar Extensions
 ========================*/
 
@@ -451,7 +472,6 @@
     background: var(--colorBgIntserAlpha) !important;
     margin-left: -30px !important;
     backdrop-filter: blur(10px);
-    z-index: 100000 !important;
   }
 
   .sortselector.sortselector-compact {
@@ -810,7 +830,6 @@
   #tabs-container,
   #tabs-subcontainer {
     padding: 0 5px !important;
-    z-index: 5;
   }
 
   .toolbar-mainbar[aria-label] {
@@ -1504,20 +1523,45 @@
   flex: 0 0 auto;
 }
 
-/* ===== 修复侧边栏右侧裁切 ===== */
+/* ===== 修复：两级标签栈展开时侧边栏上部内容向左坍缩 ===== */
+/* 强制主标签栏和工具栏保持完整侧边栏宽度，
+   防止 VivalArc 的 display:contents + grid 把上部内容压成窄条 */
 #tabs-tabbar-container,
-.tabbar-wrapper {
+.tabbar-wrapper,
+#tabs-container {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
-  z-index: 5;
 }
 
-#tabs-subcontainer .tab-strip,
-#tabs-subcontainer .tab-position,
-#tabs-subcontainer .tab-wrapper {
+.toolbar-mainbar[aria-label],
+[name="WorkspaceButton"],
+.toolbar-panel {
+  width: 100% !important;
   max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 二级栈本身占满侧边栏宽度，并防止被压缩 */
+#tabs-subcontainer {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 确保二级栈内的标签条正常铺满 */
+#tabs-subcontainer .tab-strip {
+  width: 100% !important;
+  display: flex !important;
+  box-sizing: border-box !important;
+  flex-direction: column !important;
+}
+
+#tabs-subcontainer .tab-position:not(.is-pinned) {
+  width: 100% !important;
+  max-width: 100% !important;
+  --Width: 100% !important;
   box-sizing: border-box !important;
 }
 
