@@ -1697,7 +1697,7 @@ div:has(> .overlayinfobubble) {
     position: relative !important;
     margin-bottom: 5px !important;
     padding: 0 !important;
-    z-index: 10 !important;
+    z-index: 1 !important;
     /* 清掉 Vivaldi 横向定位 */
     x: unset !important;
     y: unset !important;
@@ -1797,7 +1797,7 @@ div:has(> .overlayinfobubble) {
     max-height: none !important;
     position: relative !important;
     margin-bottom: 5px !important;
-    z-index: 10 !important;
+    z-index: 1 !important;
     /* 清掉 Vivaldi 横向定位 */
     x: unset !important;
     y: unset !important;
