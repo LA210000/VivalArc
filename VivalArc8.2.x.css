@@ -1854,3 +1854,94 @@ div:has(> .overlayinfobubble) {
     }
   }
 }
+
+/* =======================================
+   Fix: F11 Fullscreen & Minimal UI Restore
+   ======================================= */
+
+/* 1. 全屏时解除 VivalArc 的 Grid/Flex 布局干预，恢复网页全屏 */
+#browser.fullscreen #webview-container,
+#browser.fullscreen #webpage-stack,
+#browser.fullscreen .webpageview {
+  grid-column: 1 / -1 !important;
+  grid-row: 1 / -1 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* 2. 在 minimal-ui 和全屏模式下彻底隐藏变动的边栏与工具栏，防止悬浮露角 */
+#browser.fullscreen .toolbar-mainbar,
+#browser.fullscreen #tabs-tabbar-container,
+#browser.fullscreen #panels-container,
+#browser.minimal-ui .toolbar-mainbar,
+#browser.minimal-ui #tabs-tabbar-container {
+  display: none !important;
+}
+
+/* 3. 修复全屏/聚焦时网页被模糊处理的极简模式冲突 */
+#browser.fullscreen #webpage-stack {
+  filter: none !important;
+  transform: none !important;
+}
+
+/* =====================================================
+   修复：垂直标签页弹出缩略图位置
+   让缩略图显示在悬停标签页的右侧
+   ===================================================== */
+
+/* 让 tooltip 容器变成固定层，方便控制位置 */
+#vivaldi-tooltip {
+  position: fixed !important;
+  z-index: 99999 !important;
+  pointer-events: none; /* 容器本身不拦截鼠标 */
+}
+
+/* 标签栏在左侧时：把整个 tooltip 推到侧边栏右侧 */
+#browser.tabs-left ~ #vivaldi-tooltip,
+#browser.tabs-left #vivaldi-tooltip {
+  left: calc(var(--vivalarc--sidebar-width) * 1px) !important;
+  right: auto !important;
+  top: auto !important; /* 垂直位置仍由 JS 计算 */
+}
+
+/* 紧凑模式（窄侧边栏） */
+@container style(--vivalarc___is-compact-mode: 1) {
+  #browser.tabs-left ~ #vivaldi-tooltip,
+  #browser.tabs-left #vivaldi-tooltip {
+    left: calc(var(--vivalarc--compact-sidebar-width) * 1px) !important;
+  }
+}
+
+/* 标签栏在右侧时：把 tooltip 推到侧边栏左侧 */
+#browser.tabs-right ~ #vivaldi-tooltip,
+#browser.tabs-right #vivaldi-tooltip {
+  right: calc(var(--vivalarc--sidebar-width) * 1px) !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+@container style(--vivalarc___is-compact-mode: 1) {
+  #browser.tabs-right ~ #vivaldi-tooltip,
+  #browser.tabs-right #vivaldi-tooltip {
+    right: calc(var(--vivalarc--compact-sidebar-width) * 1px) !important;
+  }
+}
+
+/* 确保缩略图本身可交互 */
+#vivaldi-tooltip .tooltip,
+#vivaldi-tooltip .tooltip-item {
+  pointer-events: auto !important;
+  position: relative !important;
+}
+
+/* 可选：视觉优化 */
+#vivaldi-tooltip .tooltip {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
