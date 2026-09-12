@@ -1938,10 +1938,3 @@ div:has(> .overlayinfobubble) {
   pointer-events: auto !important;
   position: relative !important;
 }
-
-/* 可选：视觉优化 */
-#vivaldi-tooltip .tooltip {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
-  border-radius: 10px !important;
-  overflow: hidden;
-}
