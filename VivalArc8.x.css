@@ -1912,7 +1912,7 @@ div:has(> .overlayinfobubble) {
 @container style(--vivalarc___is-compact-mode: 1) {
   #browser.tabs-left ~ #vivaldi-tooltip,
   #browser.tabs-left #vivaldi-tooltip {
-    left: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
+    left: calc(var(--vivalarc--compact-sidebar-width) * 1px + 6px) !important;
   }
 }
 
@@ -1927,13 +1927,18 @@ div:has(> .overlayinfobubble) {
 @container style(--vivalarc___is-compact-mode: 1) {
   #browser.tabs-right ~ #vivaldi-tooltip,
   #browser.tabs-right #vivaldi-tooltip {
-    right: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
+    right: calc(var(--vivalarc--compact-sidebar-width) * 1px + 6px) !important;
   }
 }
 
 /* 确保缩略图本身可交互 */
 #vivaldi-tooltip .tooltip,
 #vivaldi-tooltip .tooltip-item {
+  left: 0 !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
   pointer-events: auto !important;
   position: relative !important;
 }
