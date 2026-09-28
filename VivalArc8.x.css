@@ -1905,7 +1905,7 @@ div:has(> .overlayinfobubble) {
 #browser.tabs-left #vivaldi-tooltip {
   left: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
   right: auto !important;
-  top: auto !important; /* 垂直位置仍由 JS 计算 */
+  top: 6px !important;
 }
 
 /* 紧凑模式（窄侧边栏） */
@@ -1921,7 +1921,7 @@ div:has(> .overlayinfobubble) {
 #browser.tabs-right #vivaldi-tooltip {
   right: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
   left: auto !important;
-  top: auto !important;
+  top: 6px !important;
 }
 
 @container style(--vivalarc___is-compact-mode: 1) {
