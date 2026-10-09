@@ -2,7 +2,7 @@
  * This is my personal CSS that I use to fit my liking and just appended some things to vivalarc that I want to be included
  * Version 2026_06_02
  *
- * Last Windows test : VivalArc on 8.3.4161.3
+ * Last Windows test : VivalArc on 8.3.4185.3
  *
  * (C) 2026 — YounG
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -1941,4 +1941,123 @@ div:has(> .overlayinfobubble) {
   transform: none !important;
   pointer-events: auto !important;
   position: relative !important;
+}
+
+/* ===== 最终修复：Vivaldi 8.3+ 广告拦截器卡片内部文字对齐 ===== */
+/* 1. 恢复外层弹性容器 */
+.settings-content .setting-group:has(.ContentBlocker-Control),
+.settings-content div:has(> .ContentBlocker-Control) {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. 统一卡片内部排列方向：从上到下按顺序排列（取消 space-between 导致的空白拉伸） */
+.settings-content .ContentBlocker-Control {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; /* 让内容一律靠顶自然排列 */
+  flex: 1 1 180px !important;
+  min-width: 160px !important;
+  max-width: 240px !important;
+  visibility: visible !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  padding-bottom: 48px !important; /* 为底部可能出现的编辑按钮预留位置 */
+}
+
+/* 3. 规范卡片内标题与描述文字的间距，确保 4 个卡片的文字顶部完全对齐 */
+.settings-content .ContentBlocker-Control > h3,
+.settings-content .ContentBlocker-Control > header,
+.settings-content .ContentBlocker-Control > div:first-child {
+  margin-bottom: 8px !important;
+}
+
+.settings-content .ContentBlocker-Control > p,
+.settings-content .ContentBlocker-Control > span,
+.settings-content .ContentBlocker-Control > div:nth-child(2) {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+/* 4. 将“编辑”按钮绝对定位固定的卡片左下角，不挤压上方描述文字的位置 */
+.settings-content .ContentBlocker-Control button {
+  position: absolute !important;
+  bottom: 12px !important;
+  left: 12px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 4px 12px !important;
+  border-radius: 12px !important;
+  margin: 0 !important;
+}
+
+/* 5. 让“+ 添加自定义拦截级别”按钮与卡片居中对齐 */
+.settings-content button:has([class*="add"]),
+.settings-content .setting-group:has(.ContentBlocker-Control) > button {
+  align-self: center !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* 6. 保持底部的“例外”表格容器全宽 */
+.settings-content div:has(> .site-exceptions),
+.settings-content .site-exceptions {
+  width: 100% !important;
+  display: block !important;
+}
+
+/* ===== 终极修复：二级标签栈（#tabs-subcontainer）底部空白行 ===== */
+/* 1. 强制二级标签栈内部的 tab-strip 采用标准 Flex 纵向流，打破 Vivaldi 原生的绝对定位坐标计算 */
+#tabs-subcontainer .tab-strip {
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  max-height: none !important;
+  gap: 2px !important;
+}
+
+/* 2. 强制将二级栈内部所有子项重置为相对定位，按自然顺序排列 */
+#tabs-subcontainer .tab-position {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: 0 !important;
+  transform: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* 3. 核心精细打靶：准确选中并彻底隐藏那个只占位、内部无有效标签内容的空 position 节点 */
+#tabs-subcontainer .tab-position:not(:has(.tab)),
+#tabs-subcontainer .tab-position:has(.tab[aria-hidden="true"]),
+#tabs-subcontainer .tab-position[style*="display: none"],
+#tabs-subcontainer .tab-position:empty {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+
+/* ===== 隐藏新建标签页 (+) 按钮 ===== */
+#tabs-container .newtab,
+#tabs-subcontainer .newtab,
+.tab-strip .newtab,
+button.newtab {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
