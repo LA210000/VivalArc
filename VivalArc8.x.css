@@ -2,7 +2,7 @@
  * This is my personal CSS that I use to fit my liking and just appended some things to vivalarc that I want to be included
  * Version 2026_06_02
  *
- * Last Windows test : VivalArc on 8.3.4185.3
+ * Last Windows test : VivalArc on 8.3.4190.36
  *
  * (C) 2026 — YounG
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -1655,29 +1655,6 @@ div:has(> .overlayinfobubble) {
   margin: 0 0 0 4px !important;
 }
 
-/* ===== 强制 WebView 上下边距对称 ===== */
-
-#webview-container {
-  border-top-width: calc(var(--vivalarc--webview-border) * 1px) !important;
-  border-bottom-width: calc(var(--vivalarc--webview-border) * 1px) !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-#webpage-stack {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* 确保网格行不会额外撑开上下 */
-#browser {
-  grid-template-rows: auto auto 1fr auto auto !important;
-}
-
 /* ========== 固定标签页布局切换 ========== */
 /*  #vivaldi-horizontal-pinned-tabs needed  */
 /* 1 = flexbox 布局（最多3列，最后一行只拉宽、行高固定） */
@@ -2048,7 +2025,7 @@ div:has(> .overlayinfobubble) {
   overflow: hidden !important;
 }
 
-/* ===== 隐藏新建标签页 (+) 按钮 ===== */
+/* 4. 隐藏新建标签页 (+) 按钮 */
 #tabs-container .newtab,
 #tabs-subcontainer .newtab,
 .tab-strip .newtab,
@@ -2060,4 +2037,71 @@ button.newtab {
   width: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* =======================================
+   Fix for Vivaldi 8.3 / snapshot 4190.36+
+   --vivalarc--webview-border 被默认 gap/margin 叠加导致失效
+   ======================================= */
+
+/* 1. 彻底清掉新版本可能加的 margin / padding / gap */
+#webview-container,
+#webpage-stack,
+#webpage-stack > .tiled {
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+/* 保留你原来对 tiled 的内边距（可选，按需保留） */
+#webpage-stack > .tiled {
+  padding: 5px !important;
+}
+
+/* 2. 强制重新应用 border（覆盖可能被冲掉的规则） */
+@container not style(--vivalarc--webview-border: 0) {
+  #webview-container,
+  #webpage-stack > .tiled {
+    --vivalarc__border: calc(var(--vivalarc--webview-border) * 1px);
+    border: 0 solid transparent !important;
+  }
+
+  /* 非 tiled 状态 */
+  #browser:not(:has(.tiled.active)) #webview-container {
+    border-top-width: var(--vivalarc__border) !important;
+    border-bottom-width: var(--vivalarc__border) !important;
+  }
+
+  #browser.tabs-left:not(:has(.tiled.active)) #webview-container {
+    border-left-width: calc(var(--vivalarc__border) - 5px) !important;
+    border-right-width: var(--vivalarc__border) !important;
+  }
+
+  #browser.tabs-right:not(:has(.tiled.active)) #webview-container {
+    border-left-width: var(--vivalarc__border) !important;
+    border-right-width: calc(var(--vivalarc__border) - 5px) !important;
+  }
+
+  /* tiled 状态 */
+  #webpage-stack > .tiled {
+    border-top-width: calc(var(--vivalarc__border) - 5px) !important;
+    border-bottom-width: calc(var(--vivalarc__border) - 5px) !important;
+  }
+
+  #browser.tabs-left #webpage-stack > .tiled {
+    border-left-width: calc(var(--vivalarc__border) - 10px) !important;
+    border-right-width: calc(var(--vivalarc__border) - 5px) !important;
+  }
+
+  #browser.tabs-right #webpage-stack > .tiled {
+    border-left-width: calc(var(--vivalarc__border) - 5px) !important;
+    border-right-width: calc(var(--vivalarc__border) - 10px) !important;
+  }
+}
+
+/* 3. 顺带处理可能出现的 unified / density 伪元素边框（如果还看到额外圆角/边） */
+#browser.density-on.unified-ui #webpage-stack:not(:has(.tiled.visible, .internal.visible))::before,
+#browser.density-on.unified-ui #webpage-stack:not(:has(.tiled.visible, .internal.visible))::after {
+  content: none !important;
+  display: none !important;
 }
