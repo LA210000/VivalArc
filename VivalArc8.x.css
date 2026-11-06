@@ -2,7 +2,7 @@
  * This is my personal CSS that I use to fit my liking and just appended some things to vivalarc that I want to be included
  * Version 2026_06_02
  *
- * Last Windows test : VivalArc on 8.3.4190.36
+ * Last Windows test : VivalArc on 8.3.4191.23
  *
  * (C) 2026 — YounG
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -14,7 +14,7 @@
  * https://github.com/2littersofwater/Furui-vivalarc-Tweaks
  */
 
- /*┌──────────────────┐
+/*┌──────────────────┐
    │User customization│
    └──────────────────┘*/
 
@@ -33,7 +33,8 @@
   --vivalarc--is-address-bar-unfocused-partial: 0;
   --vivalarc--is-address-bar-unfocused-hide-icons: 1;
   --vivalarc--is-address-bar-focused-hide-icons: 0;
-  --vivalarc--pinned-flex-layout: 1;   /* 1 = flexbox，0 = grid */
+  --vivalarc--pinned-flex-layout: 1;
+  /* 1 = flexbox，0 = grid */
   --vivalarc--pinned-column-count: 3;
   --vivalarc--webview-border: 10;
   --vivalarc--webview-border-radius: 12;
@@ -117,6 +118,7 @@ div:has(> .overlayinfobubble) {
 
 /* 隐藏地址栏翻译按钮 */
 @container style(--vivalarc--hide-translate-button: 1) {
+
   .UrlBar-AddressField .ToolbarButton-Button[title*="Translate"],
   .UrlBar-AddressField .ToolbarButton-Button[title*="翻译"],
   .UrlBar-AddressField button[title*="Translate"],
@@ -147,29 +149,25 @@ div:has(> .overlayinfobubble) {
     pointer-events: none;
   }
 
-  .disable-titlebar#browser.win .window-buttongroup  {
+  .disable-titlebar#browser.win .window-buttongroup {
     height: 18px;
   }
 
-  .window-buttongroup.on-mainbar  {
+  .window-buttongroup.on-mainbar {
     gap: 0px !important;
     overflow: hidden;
   }
 
   .window-buttongroup.on-mainbar button {
     width: 32px !important;
-    height: calc(
-      var(--vivalarc--custom-window-controls-windows-style-height) * 1px
-    ) !important;
+    height: calc(var(--vivalarc--custom-window-controls-windows-style-height) * 1px) !important;
     position: relative !important;
     border-radius: 0 !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
     min-width: 32px !important;
-    min-height: calc(
-      var(--vivalarc--custom-window-controls-windows-style-height) * 1px
-    ) !important;
+    min-height: calc(var(--vivalarc--custom-window-controls-windows-style-height) * 1px) !important;
     font-size: 0 !important;
     color: transparent !important;
     background: none !important;
@@ -189,42 +187,31 @@ div:has(> .overlayinfobubble) {
   }
 
   .window-buttongroup.on-mainbar button:hover::after {
-    height: calc(
-      var(--vivalarc--custom-window-controls-windows-style-height) * 1px
-    ) !important;
+    height: calc(var(--vivalarc--custom-window-controls-windows-style-height) * 1px) !important;
   }
 
   .window-buttongroup.on-mainbar .window-close::after {
     background: var(--vivalarc--custom-window-controls-close-color) !important;
   }
+
   .window-buttongroup.on-mainbar .window-close:hover::after {
-    background: hsl(
-      from var(--vivalarc--custom-window-controls-close-color) h s calc(l - 20)
-    ) !important;
+    background: hsl(from var(--vivalarc--custom-window-controls-close-color) h s calc(l - 20)) !important;
   }
 
   .window-buttongroup.on-mainbar .window-minimize::after {
-    background: var(
-      --vivalarc--custom-window-controls-minimize-color
-    ) !important;
+    background: var(--vivalarc--custom-window-controls-minimize-color) !important;
   }
+
   .window-buttongroup.on-mainbar .window-minimize:hover::after {
-    background: hsl(
-      from var(--vivalarc--custom-window-controls-minimize-color) h s
-        calc(l - 20)
-    ) !important;
+    background: hsl(from var(--vivalarc--custom-window-controls-minimize-color) h s calc(l - 20)) !important;
   }
 
   .window-buttongroup.on-mainbar .window-maximize::after {
-    background: var(
-      --vivalarc--custom-window-controls-maximize-color
-    ) !important;
+    background: var(--vivalarc--custom-window-controls-maximize-color) !important;
   }
+
   .window-buttongroup.on-mainbar .window-maximize:hover::after {
-    background: hsl(
-      from var(--vivalarc--custom-window-controls-maximize-color) h s
-        calc(l - 20)
-    ) !important;
+    background: hsl(from var(--vivalarc--custom-window-controls-maximize-color) h s calc(l - 20)) !important;
   }
 
   .window-buttongroup.on-mainbar .window-close img,
@@ -300,15 +287,11 @@ div:has(> .overlayinfobubble) {
   }
 
   .window-buttongroup.on-mainbar .window-close:hover {
-    background: hsl(
-      from var(--vivalarc--custom-window-controls-close-color) h s calc(l - 20)
-    ) !important;
+    background: hsl(from var(--vivalarc--custom-window-controls-close-color) h s calc(l - 20)) !important;
   }
 
   .window-buttongroup.on-mainbar .window-minimize {
-    background: var(
-      --vivalarc--custom-window-controls-minimize-color
-    ) !important;
+    background: var(--vivalarc--custom-window-controls-minimize-color) !important;
   }
 
   .window-buttongroup.on-mainbar .window-minimize img,
@@ -317,16 +300,11 @@ div:has(> .overlayinfobubble) {
   }
 
   .window-buttongroup.on-mainbar .window-minimize:hover {
-    background: hsl(
-      from var(--vivalarc--custom-window-controls-minimize-color) h s
-        calc(l - 20)
-    ) !important;
+    background: hsl(from var(--vivalarc--custom-window-controls-minimize-color) h s calc(l - 20)) !important;
   }
 
   .window-buttongroup.on-mainbar .window-maximize {
-    background: var(
-      --vivalarc--custom-window-controls-maximize-color
-    ) !important;
+    background: var(--vivalarc--custom-window-controls-maximize-color) !important;
   }
 
   .window-buttongroup.on-mainbar .window-maximize img,
@@ -335,10 +313,7 @@ div:has(> .overlayinfobubble) {
   }
 
   .window-buttongroup.on-mainbar .window-maximize:hover {
-    background: hsl(
-      from var(--vivalarc--custom-window-controls-maximize-color) h s
-        calc(l - 20)
-    ) !important;
+    background: hsl(from var(--vivalarc--custom-window-controls-maximize-color) h s calc(l - 20)) !important;
   }
 
   @container style(--vivalarc--custom-window-controls-more-toolbar-space: 1) {
@@ -379,9 +354,7 @@ div:has(> .overlayinfobubble) {
     backdrop-filter: blur(10px);
   }
 
-  .extensionIconPopupMenu
-    .toolbar.toolbar-mainbar.toolbar-wrap
-    .button-toolbar {
+  .extensionIconPopupMenu .toolbar.toolbar-mainbar.toolbar-wrap .button-toolbar {
     display: flex !important;
     align-items: center !important;
     justify-content: flex-start !important;
@@ -395,16 +368,12 @@ div:has(> .overlayinfobubble) {
     transition: background 0.2s ease;
   }
 
-  .extensionIconPopupMenu
-    .toolbar.toolbar-mainbar.toolbar-wrap
-    .button-toolbar:hover {
-    background: var(--colorFg) !important; /* rgba(0,0,0,0.08) !important;*/
+  .extensionIconPopupMenu .toolbar.toolbar-mainbar.toolbar-wrap .button-toolbar:hover {
+    background: var(--colorFg) !important;
+    /* rgba(0,0,0,0.08) !important;*/
   }
 
-  .extensionIconPopupMenu
-    .toolbar.toolbar-mainbar.toolbar-wrap
-    .button-toolbar
-    > button {
+  .extensionIconPopupMenu .toolbar.toolbar-mainbar.toolbar-wrap .button-toolbar>button {
     flex-shrink: 0 !important;
     width: 22px !important;
     height: 22px !important;
@@ -413,10 +382,7 @@ div:has(> .overlayinfobubble) {
     justify-content: center !important;
   }
 
-  .extensionIconPopupMenu
-    .toolbar.toolbar-mainbar.toolbar-wrap
-    .button-toolbar
-    > button::after {
+  .extensionIconPopupMenu .toolbar.toolbar-mainbar.toolbar-wrap .button-toolbar>button::after {
     content: attr(title) !important;
     font-size: 14px !important;
     color: var(--colorFg, #222) !important;
@@ -428,17 +394,12 @@ div:has(> .overlayinfobubble) {
     text-overflow: ellipsis !important;
   }
 
-  .extensionIconPopupMenu
-    .toolbar.toolbar-mainbar.toolbar-wrap
-    .button-toolbar
-    > button {
+  .extensionIconPopupMenu .toolbar.toolbar-mainbar.toolbar-wrap .button-toolbar>button {
     background: transparent !important;
     box-shadow: none !important;
   }
 
-  .extensionIconPopupMenu
-    .toolbar.toolbar-mainbar.toolbar-wrap
-    .button-toolbar:hover {
+  .extensionIconPopupMenu .toolbar.toolbar-mainbar.toolbar-wrap .button-toolbar:hover {
     background: var(--colorAccentFgAlpha) !important;
     border-radius: 8px !important;
   }
@@ -466,9 +427,7 @@ div:has(> .overlayinfobubble) {
     bottom: 40px !important;
     top: auto !important;
     width: 360px !important;
-    height: calc(
-      ((var(--vivalarc--simplified-downloads-files) - 4) * 50px) + 270px
-    ) !important;
+    height: calc(((var(--vivalarc--simplified-downloads-files) - 4) * 50px) + 270px) !important;
     background: var(--colorBgIntserAlpha) !important;
     margin-left: -30px !important;
     backdrop-filter: blur(10px);
@@ -487,10 +446,12 @@ div:has(> .overlayinfobubble) {
       transform: scale(1);
       opacity: 1;
     }
+
     50% {
       transform: scale(1.1);
       opacity: 0.8;
     }
+
     100% {
       transform: scale(1);
       opacity: 1;
@@ -513,8 +474,7 @@ div:has(> .overlayinfobubble) {
   backdrop-filter: blur(10px);
 }
 
-:not(:active, .workspace-item-wrapper).WorkspacePopup-Items
-  .workspace-item-wrapper:hover,
+:not(:active, .workspace-item-wrapper).WorkspacePopup-Items .workspace-item-wrapper:hover,
 :not(:active, .workspace-item-wrapper).WorkspacePopup-Items .this-window:hover {
   background-color: var(--colorAccentFgAlpha);
   backdrop-filter: blur(10px);
@@ -529,14 +489,10 @@ div:has(> .overlayinfobubble) {
   transition: background-color 0.1s ease-out;
 }
 
-#browser:not(.density-on)
-  #switch
-  :is(button, .button-toolbar):not(
-    .toolbar-spacer,
-    .toolbar-spacer-panel,
-    .toolbar-spacer-flexible,
-    .toolbar-divider
-  ):is(:hover, :active) {
+#browser:not(.density-on) #switch :is(button, .button-toolbar):not(.toolbar-spacer,
+  .toolbar-spacer-panel,
+  .toolbar-spacer-flexible,
+  .toolbar-divider):is(:hover, :active) {
   background-color: var(--colorBgDark);
 }
 
@@ -552,10 +508,7 @@ div:has(> .overlayinfobubble) {
   margin: 2px auto !important;
 }
 
-#browser:not(.density-on)
-  #switch
-  :is(button, .button-toolbar):hover
-  :is(img, svg) {
+#browser:not(.density-on) #switch :is(button, .button-toolbar):hover :is(img, svg) {
   transform: scale(1);
 }
 
@@ -619,13 +572,13 @@ div:has(> .overlayinfobubble) {
     height: 52px !important;
     min-height: 52px !important;
     max-height: 52px !important;
-    
+
     position: fixed !important;
     left: 50vw !important;
     top: 50vh !important;
     transform: translate(-50%, -50%) !important;
     z-index: 9999;
-    
+
     display: flex !important;
     align-items: center !important;
     box-sizing: border-box !important;
@@ -646,7 +599,7 @@ div:has(> .overlayinfobubble) {
     align-items: center !important;
   }
 
-  .UrlBar-AddressField:focus-within .UrlFragment-LinkWrapper > * {
+  .UrlBar-AddressField:focus-within .UrlFragment-LinkWrapper>* {
     display: inline-block !important;
     text-align: center !important;
   }
@@ -657,6 +610,7 @@ div:has(> .overlayinfobubble) {
   └───────────┘*/
 
 .minimal-ui {
+
   .toolbar-mainbar[aria-label],
   #panels-container,
   &.linux #header,
@@ -665,23 +619,21 @@ div:has(> .overlayinfobubble) {
   }
 }
 
-#app:has(
-    #browser:not(
-        .inner,
-        .minimal-ui,
-        .popup,
-        .tabs-top,
-        .tabs-bottom,
-        .break-mode,
-        .tabs-off
-      )
-  ) {
+#app:has(#browser:not(.inner,
+    .minimal-ui,
+    .popup,
+    .tabs-top,
+    .tabs-bottom,
+    .break-mode,
+    .tabs-off)) {
   &:has(#panel_switch) {
     --vivalarc___is-compact-mode: 1;
   }
+
   &:has(.panel-collapse-guard[aria-hidden="false"]) {
     --vivalarc___is-panel-open: 1;
   }
+
   &:not(:has(.panel-collapse-guard)),
   &:has(.panel-collapse-guard[aria-hidden="true"]) {
     --vivalarc___is-panel-closed: 1;
@@ -698,12 +650,10 @@ div:has(> .overlayinfobubble) {
   @container style(--vivalarc--is-auto-compact-mode: 1) {
     --vivalarc___is-compact-mode: 1;
 
-    &:has(
-        [name="WorkspaceButton"]:hover,
-        .toolbar-mainbar[aria-label]:hover,
-        #tabs-container:hover,
-        .toolbar-panel:hover
-      ) {
+    &:has([name="WorkspaceButton"]:hover,
+      .toolbar-mainbar[aria-label]:hover,
+      #tabs-container:hover,
+      .toolbar-panel:hover) {
       --vivalarc___is-compact-mode: 0;
     }
   }
@@ -714,23 +664,24 @@ div:has(> .overlayinfobubble) {
     }
   }
 
-#main,
-#titlebar,
-.workspace-popup,
-.mainbar,
-.mainbar > div,
-#panels,
-#switch,
-.tab-position,
-#main > .inner {
+  #main,
+  #titlebar,
+  .workspace-popup,
+  .mainbar,
+  .mainbar>div,
+  #panels,
+  #switch,
+  .tab-position,
+  #main>.inner {
     display: contents !important;
-}
+  }
 
-.tabbar-wrapper,
-#tabs-tabbar-container{
+  .tabbar-wrapper,
+  #tabs-tabbar-container {
     display: flex !important;
-    flex-direction:column !important;
-}
+    flex-direction: column !important;
+  }
+
   #browser {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
@@ -772,20 +723,25 @@ div:has(> .overlayinfobubble) {
   #webview-container {
     grid-row: 1 / -1;
   }
+
   .toolbar-mainbar[aria-label] {
     grid-row: 1 / span 1;
   }
+
   [name="WorkspaceButton"] {
     grid-row: 2 / span 1;
   }
+
   #tabs-container {
     grid-row: 3 / span 1;
   }
-  #tabs-subcontainer{
+
+  #tabs-subcontainer {
     grid-row: 4 / span 1;
     flex: 0 0 auto !important;
     height: auto !important;
   }
+
   .toolbar-panel {
     grid-row: 5 / span 1;
   }
@@ -818,6 +774,7 @@ div:has(> .overlayinfobubble) {
     .vivaldi-v svg {
       display: none;
     }
+
     .vivaldi-v {
       width: 110%;
       height: 110%;
@@ -834,6 +791,7 @@ div:has(> .overlayinfobubble) {
   .toolbar-mainbar[aria-label] {
     --vivalarc__address-bar-row: 2;
     --vivalarc__extensions-row: 3;
+
     &:has(.window-buttongroup) {
       --vivalarc__address-bar-row: 3;
       --vivalarc__extensions-row: 4;
@@ -843,15 +801,13 @@ div:has(> .overlayinfobubble) {
     height: auto !important;
     display: grid;
     grid-template-rows: auto auto 1fr auto auto;
-    grid-template-columns: repeat(
-      var(--vivalarc--toolbar-column-count),
-      calc(100% / var(--vivalarc--toolbar-column-count))
-    );
+    grid-template-columns: repeat(var(--vivalarc--toolbar-column-count),
+      calc(100% / var(--vivalarc--toolbar-column-count)));
 
     -webkit-app-region: no-drag;
   }
 
-  #tabs-container > .resize {
+  #tabs-container>.resize {
     max-height: 100% !important;
   }
 
@@ -880,6 +836,7 @@ div:has(> .overlayinfobubble) {
     .window-buttongroup {
       visibility: hidden;
     }
+
     .toolbar-mainbar[aria-label] {
       --vivalarc__window-controls-row-height: 0 !important;
     }
@@ -916,6 +873,7 @@ div:has(> .overlayinfobubble) {
 
     #browser.mac {
       .toolbar-mainbar[aria-label] {
+
         .button-toolbar,
         .UrlBar-AddressField,
         .toolbar-extensions {
@@ -939,9 +897,7 @@ div:has(> .overlayinfobubble) {
     grid-row-start: var(--vivalarc__address-bar-row);
     z-index: 2;
     margin: 0;
-    font-size: calc(
-      13px - calc(var(--vivalarc--address-bar-font-size-decrease) * 1px)
-    );
+    font-size: calc(13px - calc(var(--vivalarc--address-bar-font-size-decrease) * 1px));
   }
 
   .UrlBar-AddressField:has(#urlFieldInput:focus) {
@@ -951,7 +907,7 @@ div:has(> .overlayinfobubble) {
   }
 
   @container style(--vivalarc--is-address-bar-unfocused-partial: 1) {
-    .UrlFragment-LinkWrapper > .UrlFragment--Lowlight {
+    .UrlFragment-LinkWrapper>.UrlFragment--Lowlight {
       display: none;
     }
   }
@@ -960,15 +916,12 @@ div:has(> .overlayinfobubble) {
     &:not(:has(.ContentBlocker, #urlFieldInput:focus)) .ContentBlocker-Control {
       display: none;
     }
-    &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles)))
-      .UrlBar-AddressField:has(#urlFieldInput:not(:focus))
-      .toolbar-insideinput:last-child {
-      &
-        > *:not(
-          .UrlBar-UrlObfuscationWarning,
-          [class^="pageload"],
-          .BookmarkButton--Active
-        ),
+
+    &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles))) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child {
+
+      &>*:not(.UrlBar-UrlObfuscationWarning,
+        [class^="pageload"],
+        .BookmarkButton--Active),
       &:has(.progressing) .UrlBar-UrlObfuscationWarning {
         display: none;
       }
@@ -976,15 +929,14 @@ div:has(> .overlayinfobubble) {
   }
 
   @container style(--vivalarc--is-address-bar-focused-hide-icons: 1) {
-    .UrlBar-AddressField:has(#urlFieldInput:focus)
-      .toolbar-insideinput:last-child
-      > *:not(.UrlBar-UrlObfuscationWarning) {
+    .UrlBar-AddressField:has(#urlFieldInput:focus) .toolbar-insideinput:last-child>*:not(.UrlBar-UrlObfuscationWarning) {
       display: none;
     }
-    .UrlBar-AddressField:has(#urlFieldInput:focus)
-      .UrlBar-UrlObfuscationWarning {
+
+    .UrlBar-AddressField:has(#urlFieldInput:focus) .UrlBar-UrlObfuscationWarning {
       margin-right: 5px;
     }
+
     .UrlBar-UrlField {
       margin-right: 2px;
     }
@@ -1039,6 +991,7 @@ div:has(> .overlayinfobubble) {
     }
 
     .toolbar-panel {
+
       .toolbar-divider,
       .toolbar-spacer {
         display: none;
@@ -1072,6 +1025,7 @@ div:has(> .overlayinfobubble) {
     }
 
     .toolbar-panel {
+
       .toolbar-divider,
       .toolbar-spacer {
         display: none;
@@ -1105,6 +1059,7 @@ div:has(> .overlayinfobubble) {
     }
 
     .toolbar-panel {
+
       .toolbar-divider,
       .toolbar-spacer {
         display: none;
@@ -1118,7 +1073,7 @@ div:has(> .overlayinfobubble) {
     }
   }
 
-  #tabs-container > .resize > .tab-strip {
+  #tabs-container>.resize>.tab-strip {
     overflow: hidden auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
@@ -1350,6 +1305,7 @@ div:has(> .overlayinfobubble) {
   }
 
   #browser:not(.ui-transparent-tabs) .tab-position:not(.is-pinned) {
+
     .group:not(.active, :hover) .tab-indicator:not(:hover),
     .tab-indicator:not(.active):not(:hover) {
       background-color: var(--colorAccentBgAlphaHeavy) !important;
@@ -1357,6 +1313,7 @@ div:has(> .overlayinfobubble) {
   }
 
   #browser.ui-transparent-tabs .tab-position:not(.is-pinned) {
+
     .group:not(.active, :hover) .tab-indicator:not(:hover),
     .tab-indicator:not(.active):not(:hover) {
       background-color: transparent !important;
@@ -1399,7 +1356,7 @@ div:has(> .overlayinfobubble) {
     --colorBorderIntense: transparent;
   }
 
-  #webpage-stack > .tiled {
+  #webpage-stack>.tiled {
     padding: 5px !important;
   }
 
@@ -1412,8 +1369,9 @@ div:has(> .overlayinfobubble) {
   }
 
   @container not style(--vivalarc--webview-border: 0) {
+
     #webview-container,
-    #webpage-stack > .tiled {
+    #webpage-stack>.tiled {
       --vivalarc__border: calc(var(--vivalarc--webview-border) * 1px);
       border: 0 solid transparent;
     }
@@ -1435,23 +1393,24 @@ div:has(> .overlayinfobubble) {
       }
     }
 
-    #webpage-stack > .tiled {
+    #webpage-stack>.tiled {
       border-top-width: calc(var(--vivalarc__border) - 5px);
       border-bottom-width: calc(var(--vivalarc__border) - 5px);
     }
 
-    #browser.tabs-left #webpage-stack > .tiled {
+    #browser.tabs-left #webpage-stack>.tiled {
       border-left-width: calc(var(--vivalarc__border) - 10px);
       border-right-width: calc(var(--vivalarc__border) - 5px);
     }
 
-    #browser.tabs-right #webpage-stack > .tiled {
+    #browser.tabs-right #webpage-stack>.tiled {
       border-left-width: calc(var(--vivalarc__border) - 5px);
       border-right-width: calc(var(--vivalarc__border) - 10px);
     }
   }
 
   @container not style(--vivalarc--webview-border-radius: 0) {
+
     #webpage-stack,
     .tiled.webpageview {
       border-radius: calc(var(--vivalarc--webview-border-radius) * 1px) !important;
@@ -1459,10 +1418,10 @@ div:has(> .overlayinfobubble) {
   }
 
   @container not style(--vivalarc--webview-shadow-size: 0) {
+
     #webpage-stack:not(:has(.tiled.active)),
     .tiled.webpageview:not(.active) {
-      box-shadow: 0 0 calc(var(--vivalarc--webview-shadow-size) * 1px)
-        rgba(var(--vivalarc--webview-shadow-color));
+      box-shadow: 0 0 calc(var(--vivalarc--webview-shadow-size) * 1px) rgba(var(--vivalarc--webview-shadow-color));
     }
   }
 
@@ -1564,7 +1523,7 @@ div:has(> .overlayinfobubble) {
   box-sizing: border-box !important;
 }
 
-/* ===== 8.0 网站权限弹窗位置修复 ===== */
+/* ===== 8.0 / 8.3 网站权限弹窗位置修复（最终微调版） ===== */
 
 /* 强制弹窗从地址栏右侧弹出，避免被侧边栏遮挡 */
 .UrlBar-AddressField .button-popup,
@@ -1573,16 +1532,25 @@ div:has(> .overlayinfobubble) {
 .button-popup:has([class*="SiteInfo"]),
 .button-popup:has(.toggle) {
   position: fixed !important;
-  left: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
+  left: calc(var(--vivalarc--sidebar-width) * 1px + 5px) !important;
   top: 34px !important;
   z-index: 100000 !important;
   -webkit-app-region: no-drag !important;
   app-region: no-drag !important;
   opacity: 1 !important;
   background: var(--colorBg, #ffffff) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
   overflow: visible !important;
-  max-width: 360px !important;
+  max-width: 280px !important;
+  padding-right: 16px !important;
+  box-sizing: border-box !important;
+}
+
+.button-popup .button-popup-wrapper,
+.button-popup .popup-content,
+.button-popup > div {
+  overflow: visible !important;
+  box-sizing: border-box !important;
 }
 
 /* 弹窗内部禁止拖拽继承 */
@@ -1684,7 +1652,7 @@ div:has(> .overlayinfobubble) {
     transform: none !important;
   }
 
-  .pinned-group > span {
+  .pinned-group>span {
     flex: 1 1 calc(33.333% - 5px) !important;
     min-width: 0 !important;
     max-width: 100% !important;
@@ -1734,10 +1702,12 @@ div:has(> .overlayinfobubble) {
       background-color: var(--colorAccentBgAlphaHeavy) !important;
       border-radius: var(--radius, 8px) !important;
     }
+
     .pinned-group .tab-position.is-pinned .title,
     .pinned-group .tab-position.is-pinned .close {
       display: none !important;
     }
+
     .pinned-group .tab-position.is-pinned .favicon {
       margin: 0 !important;
       display: flex !important;
@@ -1747,10 +1717,12 @@ div:has(> .overlayinfobubble) {
   }
 
   @container style(--vivalarc___is-compact-mode: 1) {
+
     .pinned-group .tab-position.is-pinned .title,
     .pinned-group .tab-position.is-pinned .close {
       display: none !important;
     }
+
     .pinned-group .tab-position.is-pinned .favicon {
       margin: 0 !important;
       display: flex !important;
@@ -1784,7 +1756,7 @@ div:has(> .overlayinfobubble) {
     transform: none !important;
   }
 
-  .pinned-group > span {
+  .pinned-group>span {
     display: block !important;
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
@@ -1820,10 +1792,12 @@ div:has(> .overlayinfobubble) {
       background-color: var(--colorAccentBgAlphaHeavy) !important;
       border-radius: var(--radius, 8px) !important;
     }
+
     .pinned-group .tab-position.is-pinned .title,
     .pinned-group .tab-position.is-pinned .close {
       display: none !important;
     }
+
     .pinned-group .tab-position.is-pinned .favicon {
       margin: 0 !important;
       display: flex !important;
@@ -1874,11 +1848,12 @@ div:has(> .overlayinfobubble) {
 #vivaldi-tooltip {
   position: fixed !important;
   z-index: 99999 !important;
-  pointer-events: none; /* 容器本身不拦截鼠标 */
+  pointer-events: none;
+  /* 容器本身不拦截鼠标 */
 }
 
 /* 标签栏在左侧时：把整个 tooltip 推到侧边栏右侧 */
-#browser.tabs-left ~ #vivaldi-tooltip,
+#browser.tabs-left~#vivaldi-tooltip,
 #browser.tabs-left #vivaldi-tooltip {
   left: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
   right: auto !important;
@@ -1887,14 +1862,15 @@ div:has(> .overlayinfobubble) {
 
 /* 紧凑模式（窄侧边栏） */
 @container style(--vivalarc___is-compact-mode: 1) {
-  #browser.tabs-left ~ #vivaldi-tooltip,
+
+  #browser.tabs-left~#vivaldi-tooltip,
   #browser.tabs-left #vivaldi-tooltip {
     left: calc(var(--vivalarc--compact-sidebar-width) * 1px + 6px) !important;
   }
 }
 
 /* 标签栏在右侧时：把 tooltip 推到侧边栏左侧 */
-#browser.tabs-right ~ #vivaldi-tooltip,
+#browser.tabs-right~#vivaldi-tooltip,
 #browser.tabs-right #vivaldi-tooltip {
   right: calc(var(--vivalarc--sidebar-width) * 1px + 6px) !important;
   left: auto !important;
@@ -1902,7 +1878,8 @@ div:has(> .overlayinfobubble) {
 }
 
 @container style(--vivalarc___is-compact-mode: 1) {
-  #browser.tabs-right ~ #vivaldi-tooltip,
+
+  #browser.tabs-right~#vivaldi-tooltip,
   #browser.tabs-right #vivaldi-tooltip {
     right: calc(var(--vivalarc--compact-sidebar-width) * 1px + 6px) !important;
   }
@@ -1938,26 +1915,28 @@ div:has(> .overlayinfobubble) {
 .settings-content .ContentBlocker-Control {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important; /* 让内容一律靠顶自然排列 */
+  justify-content: flex-start !important;
+  /* 让内容一律靠顶自然排列 */
   flex: 1 1 180px !important;
   min-width: 160px !important;
   max-width: 240px !important;
   visibility: visible !important;
   box-sizing: border-box !important;
   position: relative !important;
-  padding-bottom: 48px !important; /* 为底部可能出现的编辑按钮预留位置 */
+  padding-bottom: 48px !important;
+  /* 为底部可能出现的编辑按钮预留位置 */
 }
 
 /* 3. 规范卡片内标题与描述文字的间距，确保 4 个卡片的文字顶部完全对齐 */
-.settings-content .ContentBlocker-Control > h3,
-.settings-content .ContentBlocker-Control > header,
-.settings-content .ContentBlocker-Control > div:first-child {
+.settings-content .ContentBlocker-Control>h3,
+.settings-content .ContentBlocker-Control>header,
+.settings-content .ContentBlocker-Control>div:first-child {
   margin-bottom: 8px !important;
 }
 
-.settings-content .ContentBlocker-Control > p,
-.settings-content .ContentBlocker-Control > span,
-.settings-content .ContentBlocker-Control > div:nth-child(2) {
+.settings-content .ContentBlocker-Control>p,
+.settings-content .ContentBlocker-Control>span,
+.settings-content .ContentBlocker-Control>div:nth-child(2) {
   margin-top: 0 !important;
   margin-bottom: 12px !important;
 }
@@ -1976,7 +1955,7 @@ div:has(> .overlayinfobubble) {
 
 /* 5. 让“+ 添加自定义拦截级别”按钮与卡片居中对齐 */
 .settings-content button:has([class*="add"]),
-.settings-content .setting-group:has(.ContentBlocker-Control) > button {
+.settings-content .setting-group:has(.ContentBlocker-Control)>button {
   align-self: center !important;
   margin: 0 !important;
   flex-shrink: 0 !important;
@@ -2047,21 +2026,22 @@ button.newtab {
 /* 1. 彻底清掉新版本可能加的 margin / padding / gap */
 #webview-container,
 #webpage-stack,
-#webpage-stack > .tiled {
+#webpage-stack>.tiled {
   margin: 0 !important;
   padding: 0 !important;
   gap: 0 !important;
 }
 
 /* 保留你原来对 tiled 的内边距（可选，按需保留） */
-#webpage-stack > .tiled {
+#webpage-stack>.tiled {
   padding: 5px !important;
 }
 
 /* 2. 强制重新应用 border（覆盖可能被冲掉的规则） */
 @container not style(--vivalarc--webview-border: 0) {
+
   #webview-container,
-  #webpage-stack > .tiled {
+  #webpage-stack>.tiled {
     --vivalarc__border: calc(var(--vivalarc--webview-border) * 1px);
     border: 0 solid transparent !important;
   }
@@ -2083,17 +2063,17 @@ button.newtab {
   }
 
   /* tiled 状态 */
-  #webpage-stack > .tiled {
+  #webpage-stack>.tiled {
     border-top-width: calc(var(--vivalarc__border) - 5px) !important;
     border-bottom-width: calc(var(--vivalarc__border) - 5px) !important;
   }
 
-  #browser.tabs-left #webpage-stack > .tiled {
+  #browser.tabs-left #webpage-stack>.tiled {
     border-left-width: calc(var(--vivalarc__border) - 10px) !important;
     border-right-width: calc(var(--vivalarc__border) - 5px) !important;
   }
 
-  #browser.tabs-right #webpage-stack > .tiled {
+  #browser.tabs-right #webpage-stack>.tiled {
     border-left-width: calc(var(--vivalarc__border) - 5px) !important;
     border-right-width: calc(var(--vivalarc__border) - 10px) !important;
   }
