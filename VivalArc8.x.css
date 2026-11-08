@@ -1534,7 +1534,7 @@ div:has(> .overlayinfobubble) {
   position: fixed !important;
   left: calc(var(--vivalarc--sidebar-width) * 1px + 5px) !important;
   top: 34px !important;
-  z-index: 100000 !important;
+  z-index: 1000 !important;
   -webkit-app-region: no-drag !important;
   app-region: no-drag !important;
   opacity: 1 !important;
